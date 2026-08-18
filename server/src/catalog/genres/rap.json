@@ -1,0 +1,490 @@
+[
+  {
+    "id": "rap-001",
+    "title": "Diário de um Detento",
+    "artist": "Racionais MC's",
+    "year": 1997,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-002",
+    "title": "Negro Drama",
+    "artist": "Racionais MC's",
+    "year": 2002,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-003",
+    "title": "A Vida É Desafio",
+    "artist": "Racionais MC's",
+    "year": 2002,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-004",
+    "title": "Homem na Estrada",
+    "artist": "Racionais MC's",
+    "year": 1997,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-005",
+    "title": "Fórmula Mágica da Paz",
+    "artist": "Sabotage",
+    "year": 2000,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-006",
+    "title": "Na Zona Sul",
+    "artist": "Sabotage",
+    "year": 2001,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-008",
+    "title": "Tô Ouvindo Alguém Me Chamar",
+    "artist": "Racionais MC's",
+    "year": 1997,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-009",
+    "title": "Soldado do Morro",
+    "artist": "MV Bill",
+    "year": 1999,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-010",
+    "title": "Tô Feliz (Matei o Presidente)",
+    "artist": "Gabriel o Pensador",
+    "year": 1993,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-011",
+    "title": "Cachorrão",
+    "artist": "Gabriel o Pensador",
+    "year": 1997,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-012",
+    "title": "Triunfo",
+    "artist": "Emicida",
+    "year": 2013,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-013",
+    "title": "Levanta e Anda",
+    "artist": "Emicida",
+    "year": 2015,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-014",
+    "title": "AmarElo",
+    "artist": "Emicida",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-015",
+    "title": "Passos em Falso",
+    "artist": "Emicida",
+    "year": 2015,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-016",
+    "title": "Bogotá",
+    "artist": "Criolo",
+    "year": 2011,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-017",
+    "title": "Não Existe Amor em SP",
+    "artist": "Criolo",
+    "year": 2011,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-018",
+    "title": "Mãe Solteira",
+    "artist": "Djonga",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-019",
+    "title": "Genesis",
+    "artist": "Djonga",
+    "year": 2018,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-020",
+    "title": "Bluesman",
+    "artist": "Baco Exu do Blues",
+    "year": 2018,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-021",
+    "title": "Anti-Herói",
+    "artist": "Rashid",
+    "year": 2015,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "rap-024",
+    "title": "Independente",
+    "artist": "Karol Conka",
+    "year": 2014,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-060",
+    "title": "10 Falcões",
+    "artist": "1Kilo",
+    "year": 2018,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "rap-061",
+    "title": "Bandalha",
+    "artist": "1Kilo",
+    "year": 2017,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "rap-062",
+    "title": "Amor de Verão",
+    "artist": "Costa Gold",
+    "year": 2019,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-063",
+    "title": "Dinheiro Sujo",
+    "artist": "Costa Gold",
+    "year": 2020,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "rap-064",
+    "title": "Fluxo Nato",
+    "artist": "Sant",
+    "year": 2021,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-025",
+    "title": "Vida Loka, Pt. 1",
+    "artist": "Racionais MC's",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-026",
+    "title": "Vida Loka, Pt. 2",
+    "artist": "Racionais MC's",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-027",
+    "title": "Jesus Chorou",
+    "artist": "Racionais MC's",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-028",
+    "title": "Da Ponte Pra Cá",
+    "artist": "Racionais MC's",
+    "year": 2002,
+    "difficulty": 2,
+    "popularity": 5
+  },
+  {
+    "id": "rap-029",
+    "title": "Capítulo 4, Versículo 3",
+    "artist": "Racionais MC's",
+    "year": 1997,
+    "difficulty": 2,
+    "popularity": 5
+  },
+  {
+    "id": "rap-030",
+    "title": "Rap É Compromisso",
+    "artist": "Sabotage",
+    "year": 2000,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-031",
+    "title": "Um Bom Lugar",
+    "artist": "Sabotage",
+    "year": 1999,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-032",
+    "title": "Boa Esperança",
+    "artist": "Emicida",
+    "year": 2015,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-033",
+    "title": "Hoje Cedo",
+    "artist": "Emicida",
+    "year": 2013,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-034",
+    "title": "Principia",
+    "artist": "Emicida",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-035",
+    "title": "Pequenas Alegrias da Vida Adulta",
+    "artist": "Emicida",
+    "year": 2019,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-036",
+    "title": "Convoque Seu Buda",
+    "artist": "Criolo",
+    "year": 2014,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-037",
+    "title": "Subirusdoistiozin",
+    "artist": "Criolo",
+    "year": 2011,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-038",
+    "title": "Duas de Cinco",
+    "artist": "Criolo",
+    "year": 2014,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-039",
+    "title": "Leal",
+    "artist": "Djonga",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-040",
+    "title": "Olho de Tigre",
+    "artist": "Djonga",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-041",
+    "title": "Ufa",
+    "artist": "Djonga",
+    "year": 2020,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-042",
+    "title": "Procuro Alguém",
+    "artist": "Djonga",
+    "year": 2018,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-043",
+    "title": "Te Amo Disgraça",
+    "artist": "Baco Exu do Blues",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-044",
+    "title": "Girassóis de Van Gogh",
+    "artist": "Baco Exu do Blues",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-045",
+    "title": "20 Ligações",
+    "artist": "Baco Exu do Blues",
+    "year": 2022,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-046",
+    "title": "Me Desculpa Jay Z",
+    "artist": "Baco Exu do Blues",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-047",
+    "title": "Planos",
+    "artist": "BK'",
+    "year": 2018,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-048",
+    "title": "Caminhos",
+    "artist": "BK'",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-049",
+    "title": "Quadros",
+    "artist": "BK'",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-050",
+    "title": "Amanhecer",
+    "artist": "BK'",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-051",
+    "title": "Pseudosocial",
+    "artist": "Froid",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-052",
+    "title": "Lamentável, Pt. III",
+    "artist": "Froid",
+    "year": 2017,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-053",
+    "title": "Invicto",
+    "artist": "Filipe Ret",
+    "year": 2015,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-054",
+    "title": "Vivendo Avançado",
+    "artist": "Filipe Ret",
+    "year": 2012,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-055",
+    "title": "Neurótico de Guerra",
+    "artist": "Filipe Ret",
+    "year": 2012,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-056",
+    "title": "Freio da Blazer",
+    "artist": "L7NNON",
+    "year": 2020,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-057",
+    "title": "Perdição",
+    "artist": "L7NNON",
+    "year": 2021,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-058",
+    "title": "Monalisa",
+    "artist": "Xamã",
+    "year": 2021,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-059",
+    "title": "A Rua",
+    "artist": "Projota",
+    "year": 2014,
+    "difficulty": 2,
+    "popularity": 4
+  }
+]

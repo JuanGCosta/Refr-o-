@@ -1,0 +1,474 @@
+[
+  {
+    "id": "funk-001",
+    "title": "Rap da Felicidade",
+    "artist": "MCs Cidinho e Doca",
+    "year": 1994,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-002",
+    "title": "Rap das Armas",
+    "artist": "MCs Cidinho e Doca",
+    "year": 2004,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-003",
+    "title": "Endereço dos Beijos",
+    "artist": "MC Marcinho",
+    "year": 1998,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-004",
+    "title": "Glamurosa",
+    "artist": "MC Marcinho",
+    "year": 2001,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "funk-005",
+    "title": "Injeção",
+    "artist": "Bonde do Tigrão",
+    "year": 2003,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-006",
+    "title": "Um Real é um Tostão",
+    "artist": "Tati Quebra-Barraco",
+    "year": 2004,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-007",
+    "title": "Boladona",
+    "artist": "Tati Quebra-Barraco",
+    "year": 2003,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "funk-008",
+    "title": "Créu",
+    "artist": "MC Créu",
+    "year": 2007,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-010",
+    "title": "Passinho do Volante",
+    "artist": "MC Federado",
+    "year": 2013,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-011",
+    "title": "Baile de Favela",
+    "artist": "MC João",
+    "year": 2015,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-013",
+    "title": "Que Tiro Foi Esse",
+    "artist": "Jojo Maronttinni",
+    "year": 2015,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-014",
+    "title": "Olha a Explosão",
+    "artist": "MC Kevinho",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-015",
+    "title": "Ela Só Pensa em Balançar",
+    "artist": "MC Livinho",
+    "year": 2016,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-016",
+    "title": "Bum Bum Tam Tam",
+    "artist": "MC Fioti",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-017",
+    "title": "Vai Malandra",
+    "artist": "Anitta, MC Zaac e Tropkillaz",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-018",
+    "title": "Tá OK",
+    "artist": "DENNIS e Kevin O Chris",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-020",
+    "title": "Solta o Frango",
+    "artist": "Bonde do Tigrão",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-021",
+    "title": "Bololô Haam",
+    "artist": "MC Guimê e Léo Santana",
+    "year": 2018,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-024",
+    "title": "Deixa Ela Voar",
+    "artist": "MC Kevinho",
+    "year": 2018,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-025",
+    "title": "Rave de Favela",
+    "artist": "Major Lazer, Anitta e MC Lan",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-026",
+    "title": "Combatchy",
+    "artist": "Anitta, Lexa, Luísa Sonza e MC Rebecca",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-028",
+    "title": "Parado no Bailão",
+    "artist": "MC Kevin o Chris",
+    "year": 2020,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-029",
+    "title": "Malandramente",
+    "artist": "DENNIS, MC Nandinho e Nego Bam",
+    "year": 2020,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-030",
+    "title": "Sentadão",
+    "artist": "Pedro Sampaio, Felipe Original e JS o Mão de Ouro",
+    "year": 2020,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-031",
+    "title": "Beber, Beijar",
+    "artist": "MC WM",
+    "year": 2021,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-032",
+    "title": "Corre Peruano",
+    "artist": "MC Guimê",
+    "year": 2013,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "funk-033",
+    "title": "Vai Sentando",
+    "artist": "MC Gui",
+    "year": 2016,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-034",
+    "title": "Envolvimento",
+    "artist": "MC Loma e As Gêmeas Lacração",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-035",
+    "title": "Não Segura Não",
+    "artist": "Aldair Playboy e DJ Chris no Beat",
+    "year": 2022,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-036",
+    "title": "Evoluiu",
+    "artist": "MC Kevin o Chris",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-037",
+    "title": "Tipo Gin",
+    "artist": "MC Kevin o Chris",
+    "year": 2020,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-038",
+    "title": "Cheia de Marra",
+    "artist": "MC Livinho",
+    "year": 2016,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-039",
+    "title": "Fazer Falta",
+    "artist": "MC Livinho",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-040",
+    "title": "Novidade na Área",
+    "artist": "MC Livinho",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-041",
+    "title": "O Grave Bater",
+    "artist": "MC Kevinho",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-042",
+    "title": "Tumbalatum",
+    "artist": "MC Kevinho",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-043",
+    "title": "Papum",
+    "artist": "MC Kevinho",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-044",
+    "title": "Vai Embrazando",
+    "artist": "MC Zaac",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-045",
+    "title": "Amar, Amei",
+    "artist": "MC Don Juan",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-046",
+    "title": "Oh Novinha Eu Quero Te Ver Contente",
+    "artist": "MC Don Juan",
+    "year": 2016,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-047",
+    "title": "Ilusão (Cracolândia)",
+    "artist": "MC Hariel",
+    "year": 2020,
+    "difficulty": 2,
+    "popularity": 5
+  },
+  {
+    "id": "funk-048",
+    "title": "Maçã Verde",
+    "artist": "MC Hariel",
+    "year": 2021,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-049",
+    "title": "Mundão Girou",
+    "artist": "MC Hariel",
+    "year": 2022,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-050",
+    "title": "3 Dias Virado",
+    "artist": "MC IG",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-051",
+    "title": "Goodnight Menina",
+    "artist": "MC IG",
+    "year": 2024,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-052",
+    "title": "Casei Com a Putaria",
+    "artist": "MC Ryan SP",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 5
+  },
+  {
+    "id": "funk-053",
+    "title": "Tubarão Te Amo",
+    "artist": "DJ LK da Escócia",
+    "year": 2022,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-054",
+    "title": "Dançarina",
+    "artist": "Pedro Sampaio",
+    "year": 2022,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-055",
+    "title": "POCPOC",
+    "artist": "Pedro Sampaio",
+    "year": 2023,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-056",
+    "title": "No Chão Novinha",
+    "artist": "Anitta e Pedro Sampaio",
+    "year": 2021,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-057",
+    "title": "Hoje",
+    "artist": "Ludmilla",
+    "year": 2014,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-058",
+    "title": "Fala Mal de Mim",
+    "artist": "Ludmilla",
+    "year": 2014,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-059",
+    "title": "Agora É Tudo Meu",
+    "artist": "DENNIS e Kevinho",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-060",
+    "title": "Surtada",
+    "artist": "Dadá Boladão, Tati Zaqui e OIK",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-061",
+    "title": "Bola Rebola",
+    "artist": "Tropkillaz, J Balvin e Anitta",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-062",
+    "title": "Vai Vendo",
+    "artist": "MC Don Juan",
+    "year": 2016,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-063",
+    "title": "Tá Tranquilo, Tá Favorável",
+    "artist": "MC Bin Laden",
+    "year": 2015,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-064",
+    "title": "Open the Tcheka",
+    "artist": "MC Lan",
+    "year": 2017,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-065",
+    "title": "Dentro do Carro",
+    "artist": "MC Kevin o Chris",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "acu-001",
+    "title": "Poesia Acústica #1: Descompasso do Compasso",
+    "artist": "Pineapple StormTv",
+    "year": 2017,
+    "difficulty": 3,
+    "popularity": 4
+  },
+  {
+    "id": "acu-002",
+    "title": "Poesia Acústica #2: Sobre Nós",
+    "artist": "Pineapple StormTv",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "acu-003",
+    "title": "Poesia Acústica #3: Capricorniana",
+    "artist": "Pineapple StormTv",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "acu-004",
+    "title": "Poesia Acústica #4: Todo Mundo Odeia Acústico",
+    "artist": "Pineapple StormTv",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 5
+  },
+  {
+    "id": "acu-005",
+    "title": "Poesia Acústica #5: Teu Popô",
+    "artist": "Pineapple StormTv",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-006",
+    "title": "Poesia Acústica #6: Era Uma Vez",
+    "artist": "Pineapple StormTv",
+    "year": 2018,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "acu-007",
+    "title": "Poesia Acústica #7: Céu Azul",
+    "artist": "Pineapple StormTv",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "acu-008",
+    "title": "Poesia Acústica #8: Amor e Samba",
+    "artist": "Pineapple StormTv",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-009",
+    "title": "Poesia Acústica #9: Melhor Forma",
+    "artist": "Pineapple StormTv",
+    "year": 2020,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "acu-010",
+    "title": "Poesia Acústica #10: Recomeçar",
+    "artist": "Pineapple StormTv",
+    "year": 2021,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-011",
+    "title": "Poesia Acústica #11: Nada Mudou",
+    "artist": "Pineapple StormTv",
+    "year": 2021,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-012",
+    "title": "Poesia Acústica #12: Pra Sempre",
+    "artist": "Pineapple StormTv",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-013",
+    "title": "Poesia Acústica 13",
+    "artist": "Pineapple StormTv",
+    "year": 2022,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "acu-014",
+    "title": "Poesia Acústica 14",
+    "artist": "Pineapple StormTv",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-015",
+    "title": "Poesia Acústica 15",
+    "artist": "Pineapple StormTv",
+    "year": 2024,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "acu-016",
+    "title": "Poesia Acústica 16",
+    "artist": "Pineapple StormTv",
+    "year": 2025,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "acu-017",
+    "title": "Deixe Me Ir",
+    "artist": "1Kilo",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "acu-018",
+    "title": "De Love",
+    "artist": "1Kilo",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-019",
+    "title": "Duro Igual Concreto",
+    "artist": "1Kilo",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-020",
+    "title": "Você Vai Entender",
+    "artist": "1Kilo",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-021",
+    "title": "Sensação",
+    "artist": "1Kilo",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-022",
+    "title": "Relação",
+    "artist": "1Kilo",
+    "year": 2017,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "acu-023",
+    "title": "Você Não Ama Ninguém",
+    "artist": "Pineapple StormTv",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "acu-024",
+    "title": "O Vagabundo e a Dama",
+    "artist": "Oriente",
+    "year": 2014,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "acu-025",
+    "title": "Vagabundo É Foda",
+    "artist": "Oriente",
+    "year": 2011,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-026",
+    "title": "Linda, Louca e Mimada",
+    "artist": "Oriente",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-027",
+    "title": "Foda Que Ela É Linda",
+    "artist": "3030",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-028",
+    "title": "Meu Jardim",
+    "artist": "3030",
+    "year": 2015,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-029",
+    "title": "Alquimia",
+    "artist": "3030",
+    "year": 2016,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "acu-030",
+    "title": "Sunshine",
+    "artist": "Delacruz",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-031",
+    "title": "Cigana",
+    "artist": "Delacruz",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "acu-032",
+    "title": "Saudade",
+    "artist": "Luiz Lins",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "acu-033",
+    "title": "Nós",
+    "artist": "Maria e Kayuá",
+    "year": 2018,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "acu-034",
+    "title": "Poesia Acústica: Paris",
+    "artist": "Pineapple StormTv",
+    "year": 2020,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "acu-035",
+    "title": "Acústico Altamira #1",
+    "artist": "Altamira",
+    "year": 2019,
+    "difficulty": 4,
+    "popularity": 2
+  }
+]

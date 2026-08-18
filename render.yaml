@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: refrao-game
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm run start -w server
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: REFRAO_ALLOWED_ORIGINS
+        value: "*"

@@ -1,0 +1,482 @@
+[
+  {
+    "id": "sert-007",
+    "title": "Você Não Sabe o Que É Amor",
+    "artist": "Luan Santana",
+    "year": 2010,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-008",
+    "title": "Duas Cervejas",
+    "artist": "César Menotti & Fabiano",
+    "year": 2003,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-009",
+    "title": "Ai Se Eu Te Pego",
+    "artist": "Michel Teló",
+    "year": 2011,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-010",
+    "title": "Fugidinha",
+    "artist": "Michel Teló",
+    "year": 2012,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-011",
+    "title": "Balada Boa",
+    "artist": "Gusttavo Lima",
+    "year": 2011,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-012",
+    "title": "Apelido Carinhoso",
+    "artist": "Gusttavo Lima",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-013",
+    "title": "Fui Fiel",
+    "artist": "Gusttavo Lima",
+    "year": 2013,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-016",
+    "title": "Sinto Sua Falta",
+    "artist": "Jorge & Mateus",
+    "year": 2010,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-017",
+    "title": "Pode Chorar",
+    "artist": "Jorge & Mateus",
+    "year": 2013,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-018",
+    "title": "Namorando ou Só Ficando",
+    "artist": "Jorge & Mateus part. Anitta",
+    "year": 2015,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-019",
+    "title": "Infiel",
+    "artist": "Marília Mendonça",
+    "year": 2016,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-020",
+    "title": "Todo Mundo Vai Sofrer",
+    "artist": "Marília Mendonça",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-021",
+    "title": "Eu Sei de Cor",
+    "artist": "Marília Mendonça",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-022",
+    "title": "Medo Bobo",
+    "artist": "Maiara & Maraisa",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-023",
+    "title": "Pode Sumir",
+    "artist": "Maiara & Maraisa",
+    "year": 2018,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-024",
+    "title": "Erro Gostoso",
+    "artist": "Simone Mendes",
+    "year": 2017,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-025",
+    "title": "Volta pra Mim",
+    "artist": "Henrique & Juliano",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-028",
+    "title": "Batom de Cereja",
+    "artist": "Israel & Rodolffo",
+    "year": 2019,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-029",
+    "title": "Boiadeira",
+    "artist": "Ana Castela",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-030",
+    "title": "Pipoco",
+    "artist": "Ana Castela, Melody e DJ GBR",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-031",
+    "title": "Meteoro",
+    "artist": "Luan Santana",
+    "year": 2009,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-032",
+    "title": "Te Esperando",
+    "artist": "Luan Santana",
+    "year": 2013,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-033",
+    "title": "Escreve Aí",
+    "artist": "Luan Santana",
+    "year": 2015,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-034",
+    "title": "Cê Topa?",
+    "artist": "Luan Santana",
+    "year": 2014,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-035",
+    "title": "Morena",
+    "artist": "Luan Santana",
+    "year": 2021,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-036",
+    "title": "Amo Noite e Dia",
+    "artist": "Jorge & Mateus",
+    "year": 2010,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-037",
+    "title": "Sosseguei",
+    "artist": "Jorge & Mateus",
+    "year": 2015,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-038",
+    "title": "Propaganda",
+    "artist": "Jorge & Mateus",
+    "year": 2018,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-039",
+    "title": "Os Anjos Cantam",
+    "artist": "Jorge & Mateus",
+    "year": 2015,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-040",
+    "title": "A Hora É Agora",
+    "artist": "Jorge & Mateus",
+    "year": 2012,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-041",
+    "title": "Cuida Bem Dela",
+    "artist": "Henrique & Juliano",
+    "year": 2014,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-042",
+    "title": "Liberdade Provisória",
+    "artist": "Henrique & Juliano",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-043",
+    "title": "Arranhão",
+    "artist": "Henrique & Juliano",
+    "year": 2021,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-044",
+    "title": "Na Hora da Raiva",
+    "artist": "Henrique & Juliano",
+    "year": 2015,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-045",
+    "title": "Traumatizei",
+    "artist": "Henrique & Juliano",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-046",
+    "title": "Supera",
+    "artist": "Marília Mendonça",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-047",
+    "title": "De Quem É a Culpa?",
+    "artist": "Marília Mendonça",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-048",
+    "title": "Ausência",
+    "artist": "Marília Mendonça",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-049",
+    "title": "Graveto",
+    "artist": "Marília Mendonça",
+    "year": 2020,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-050",
+    "title": "Ciumeira",
+    "artist": "Marília Mendonça",
+    "year": 2018,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-051",
+    "title": "10%",
+    "artist": "Maiara & Maraisa",
+    "year": 2016,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-052",
+    "title": "Sorte Que Cê Beija Bem",
+    "artist": "Maiara & Maraisa",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-053",
+    "title": "Nem Tchum",
+    "artist": "Maiara & Maraisa",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-054",
+    "title": "A Culpa É Nossa",
+    "artist": "Maiara & Maraisa",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-055",
+    "title": "Bloqueado",
+    "artist": "Gusttavo Lima",
+    "year": 2021,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-056",
+    "title": "Zé da Recaída",
+    "artist": "Gusttavo Lima",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-057",
+    "title": "Cem Mil",
+    "artist": "Gusttavo Lima",
+    "year": 2018,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-058",
+    "title": "Ficha Limpa",
+    "artist": "Gusttavo Lima",
+    "year": 2021,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-059",
+    "title": "Largado às Traças",
+    "artist": "Zé Neto & Cristiano",
+    "year": 2018,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-060",
+    "title": "Notificação Preferida",
+    "artist": "Zé Neto & Cristiano",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-061",
+    "title": "Seu Polícia",
+    "artist": "Zé Neto & Cristiano",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-062",
+    "title": "Barulho do Foguete",
+    "artist": "Zé Neto & Cristiano",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-063",
+    "title": "Nosso Quadro",
+    "artist": "Ana Castela",
+    "year": 2023,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-064",
+    "title": "Solteiro Forçado",
+    "artist": "Ana Castela",
+    "year": 2023,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-065",
+    "title": "Que Sorte a Nossa",
+    "artist": "Matheus & Kauan",
+    "year": 2015,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-066",
+    "title": "O Nosso Santo Bateu",
+    "artist": "Matheus & Kauan",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-067",
+    "title": "Te Assumi Pro Brasil",
+    "artist": "Matheus & Kauan",
+    "year": 2016,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-068",
+    "title": "Anestesiado",
+    "artist": "Murilo Huff",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-069",
+    "title": "Dois Tristes",
+    "artist": "Simone Mendes",
+    "year": 2024,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-070",
+    "title": "Haja Colírio",
+    "artist": "Guilherme & Benuto",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  }
+]

@@ -1,0 +1,3 @@
+import React from "react";
+interface P extends React.InputHTMLAttributes<HTMLInputElement>{label?:string}
+export const TextField=React.forwardRef<HTMLInputElement,P>(({label,className="",id,...props},ref)=><label className="flex flex-col gap-2 w-full" htmlFor={id}>{label&&<span className="eyebrow">{label}</span>}<input ref={ref} id={id} className={`w-full rounded-2xl bg-white/[.035] border border-white/[.10] px-4 py-4 text-base sm:text-lg text-mist-100 placeholder:text-mist-500 outline-none focus:border-cyan-400/70 focus:bg-white/[.05] transition ${className}`} {...props}/></label>);TextField.displayName="TextField";

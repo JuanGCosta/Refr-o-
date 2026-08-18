@@ -1,0 +1,794 @@
+[
+  {
+    "id": "mpb-001",
+    "title": "Construção",
+    "artist": "Chico Buarque",
+    "year": 1971,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-002",
+    "title": "A Banda",
+    "artist": "Chico Buarque",
+    "year": 1966,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-003",
+    "title": "Roda Viva",
+    "artist": "Chico Buarque",
+    "year": 1968,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-004",
+    "title": "Cálice",
+    "artist": "Chico Buarque e Gilberto Gil",
+    "year": 1973,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-005",
+    "title": "Trocando em Miúdos",
+    "artist": "Chico Buarque",
+    "year": 1978,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-006",
+    "title": "Águas de Março",
+    "artist": "Tom Jobim",
+    "year": 1972,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-007",
+    "title": "Garota de Ipanema",
+    "artist": "Tom Jobim e Vinícius de Moraes",
+    "year": 1962,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-008",
+    "title": "Chega de Saudade",
+    "artist": "João Gilberto",
+    "year": 1959,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-009",
+    "title": "Alegria, Alegria",
+    "artist": "Caetano Veloso",
+    "year": 1967,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-010",
+    "title": "Sozinho",
+    "artist": "Caetano Veloso",
+    "year": 1998,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-011",
+    "title": "Sampa",
+    "artist": "Caetano Veloso",
+    "year": 1978,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-012",
+    "title": "Coração Vagabundo",
+    "artist": "Caetano Veloso",
+    "year": 1967,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "mpb-013",
+    "title": "Índia",
+    "artist": "Gal Costa",
+    "year": 1973,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-014",
+    "title": "Baby",
+    "artist": "Gal Costa",
+    "year": 1969,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "mpb-015",
+    "title": "Aquele Abraço",
+    "artist": "Gilberto Gil",
+    "year": 1969,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-016",
+    "title": "Expresso 2222",
+    "artist": "Gilberto Gil",
+    "year": 1972,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-017",
+    "title": "Andar Com Fé",
+    "artist": "Gilberto Gil",
+    "year": 1982,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-018",
+    "title": "Como Nossos Pais",
+    "artist": "Elis Regina",
+    "year": 1976,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-019",
+    "title": "O Bêbado e a Equilibrista",
+    "artist": "Elis Regina",
+    "year": 1979,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-020",
+    "title": "Apenas um Rapaz Latino-Americano",
+    "artist": "Belchior",
+    "year": 1976,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-021",
+    "title": "Alucinação",
+    "artist": "Belchior",
+    "year": 1976,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "mpb-022",
+    "title": "Cio da Terra",
+    "artist": "Milton Nascimento e Chico Buarque",
+    "year": 1977,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-023",
+    "title": "Travessia",
+    "artist": "Milton Nascimento",
+    "year": 1967,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-024",
+    "title": "Ponta de Areia",
+    "artist": "Milton Nascimento",
+    "year": 1975,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "mpb-025",
+    "title": "Flor de Lis",
+    "artist": "Djavan",
+    "year": 1976,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-026",
+    "title": "Oceano",
+    "artist": "Djavan",
+    "year": 1989,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-027",
+    "title": "Esquinas",
+    "artist": "Djavan",
+    "year": 1980,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "mpb-028",
+    "title": "Do Leme ao Pontal",
+    "artist": "Tim Maia",
+    "year": 1982,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-029",
+    "title": "Ainda Bem",
+    "artist": "Marisa Monte",
+    "year": 2000,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-030",
+    "title": "Amor I Love You",
+    "artist": "Marisa Monte",
+    "year": 2006,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-031",
+    "title": "Metamorfose Ambulante",
+    "artist": "Raul Seixas",
+    "year": 1973,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-032",
+    "title": "Ouro de Tolo",
+    "artist": "Raul Seixas",
+    "year": 1973,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-033",
+    "title": "Detalhes",
+    "artist": "Roberto Carlos",
+    "year": 1971,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-034",
+    "title": "Emoções",
+    "artist": "Roberto Carlos",
+    "year": 1981,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-035",
+    "title": "É Preciso Saber Viver",
+    "artist": "Roberto Carlos e Erasmo Carlos",
+    "year": 1968,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-036",
+    "title": "Preciso Me Encontrar",
+    "artist": "Cartola",
+    "year": 1976,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-037",
+    "title": "O Mundo é um Moinho",
+    "artist": "Cartola",
+    "year": 1976,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "mpb-038",
+    "title": "Trem das Onze",
+    "artist": "Adoniran Barbosa",
+    "year": 1964,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-039",
+    "title": "Como Uma Onda",
+    "artist": "Lulu Santos",
+    "year": 1983,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-040",
+    "title": "Assim Caminha a Humanidade",
+    "artist": "Lulu Santos",
+    "year": 1984,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-041",
+    "title": "Ovelha Negra",
+    "artist": "Rita Lee",
+    "year": 1975,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-042",
+    "title": "Mania de Você",
+    "artist": "Rita Lee",
+    "year": 1979,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-043",
+    "title": "Exagerado",
+    "artist": "Cazuza",
+    "year": 1985,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-044",
+    "title": "O Tempo Não Para",
+    "artist": "Cazuza",
+    "year": 1988,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-045",
+    "title": "Ideologia",
+    "artist": "Cazuza",
+    "year": 1988,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-047",
+    "title": "É Isso Aí",
+    "artist": "Ana Carolina",
+    "year": 1999,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "mpb-049",
+    "title": "Boa Sorte / Good Luck",
+    "artist": "Vanessa da Mata e Ben Harper",
+    "year": 2007,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-050",
+    "title": "Malandragem",
+    "artist": "Cássia Eller",
+    "year": 1994,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-051",
+    "title": "Azul da Cor do Mar",
+    "artist": "Tim Maia",
+    "year": 1970,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-052",
+    "title": "Não Vou Ficar",
+    "artist": "Tim Maia",
+    "year": 1971,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-053",
+    "title": "Mas Que Nada",
+    "artist": "Jorge Ben Jor",
+    "year": 1963,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-054",
+    "title": "País Tropical",
+    "artist": "Jorge Ben Jor",
+    "year": 1969,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-055",
+    "title": "Taj Mahal",
+    "artist": "Jorge Ben Jor",
+    "year": 1972,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-056",
+    "title": "A Primeira Vista",
+    "artist": "Chico César",
+    "year": 1998,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-057",
+    "title": "Anna Julia",
+    "artist": "Los Hermanos",
+    "year": 1999,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-058",
+    "title": "Encontros e Despedidas",
+    "artist": "Maria Rita",
+    "year": 2003,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-059",
+    "title": "Playsom",
+    "artist": "BaianaSystem",
+    "year": 2016,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "mpb-060",
+    "title": "Cirandeiro",
+    "artist": "Silva",
+    "year": 2014,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-061",
+    "title": "Zero",
+    "artist": "Liniker",
+    "year": 2019,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "mpb-062",
+    "title": "Você É Linda",
+    "artist": "Caetano Veloso",
+    "year": 1983,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-063",
+    "title": "O Leãozinho",
+    "artist": "Caetano Veloso",
+    "year": 1977,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-064",
+    "title": "Oração ao Tempo",
+    "artist": "Caetano Veloso",
+    "year": 1979,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-065",
+    "title": "Drão",
+    "artist": "Gilberto Gil",
+    "year": 1982,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-066",
+    "title": "Palco",
+    "artist": "Gilberto Gil",
+    "year": 1981,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-067",
+    "title": "Toda Menina Baiana",
+    "artist": "Gilberto Gil",
+    "year": 1979,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-068",
+    "title": "Sina",
+    "artist": "Djavan",
+    "year": 1982,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-069",
+    "title": "Samurai",
+    "artist": "Djavan",
+    "year": 1982,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-070",
+    "title": "Se...",
+    "artist": "Djavan",
+    "year": 1992,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-071",
+    "title": "Eu Te Devoro",
+    "artist": "Djavan",
+    "year": 1998,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-072",
+    "title": "Pétala",
+    "artist": "Djavan",
+    "year": 1982,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-073",
+    "title": "Fascinação",
+    "artist": "Elis Regina",
+    "year": 1976,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-074",
+    "title": "Madalena",
+    "artist": "Elis Regina",
+    "year": 1971,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-075",
+    "title": "Cais",
+    "artist": "Milton Nascimento",
+    "year": 1972,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-076",
+    "title": "Clube da Esquina Nº 2",
+    "artist": "Milton Nascimento",
+    "year": 1972,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-077",
+    "title": "Maria, Maria",
+    "artist": "Milton Nascimento",
+    "year": 1978,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-078",
+    "title": "Canção da América",
+    "artist": "Milton Nascimento",
+    "year": 1980,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-079",
+    "title": "Gostava Tanto de Você",
+    "artist": "Tim Maia",
+    "year": 1973,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-080",
+    "title": "Você",
+    "artist": "Tim Maia",
+    "year": 1971,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-081",
+    "title": "Descobridor dos Sete Mares",
+    "artist": "Tim Maia",
+    "year": 1983,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-082",
+    "title": "Beija Eu",
+    "artist": "Marisa Monte",
+    "year": 1991,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-083",
+    "title": "Vilarejo",
+    "artist": "Marisa Monte",
+    "year": 2006,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-084",
+    "title": "Depois",
+    "artist": "Marisa Monte",
+    "year": 2011,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-085",
+    "title": "O Segundo Sol",
+    "artist": "Cássia Eller",
+    "year": 1999,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-086",
+    "title": "Por Enquanto",
+    "artist": "Cássia Eller",
+    "year": 1990,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-087",
+    "title": "All Star",
+    "artist": "Nando Reis",
+    "year": 2000,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-088",
+    "title": "Relicário",
+    "artist": "Nando Reis",
+    "year": 2000,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-089",
+    "title": "Por Onde Andei",
+    "artist": "Nando Reis",
+    "year": 2004,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-090",
+    "title": "Mina do Condomínio",
+    "artist": "Seu Jorge",
+    "year": 2007,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-091",
+    "title": "Burguesinha",
+    "artist": "Seu Jorge",
+    "year": 2007,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-092",
+    "title": "Amiga da Minha Mulher",
+    "artist": "Seu Jorge",
+    "year": 2011,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-093",
+    "title": "Esquadros",
+    "artist": "Adriana Calcanhotto",
+    "year": 1992,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-094",
+    "title": "Vambora",
+    "artist": "Adriana Calcanhotto",
+    "year": 1998,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-095",
+    "title": "Devolva-me",
+    "artist": "Adriana Calcanhotto",
+    "year": 2000,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-096",
+    "title": "Baby 95",
+    "artist": "Liniker",
+    "year": 2021,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-097",
+    "title": "Calmô",
+    "artist": "Liniker e os Caramelows",
+    "year": 2015,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "mpb-098",
+    "title": "Quando Bate Aquela Saudade",
+    "artist": "Rubel",
+    "year": 2013,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-099",
+    "title": "Tempo de Pipa",
+    "artist": "Cícero",
+    "year": 2011,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "mpb-100",
+    "title": "Velha Infância",
+    "artist": "Tribalistas",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "mpb-101",
+    "title": "Já Sei Namorar",
+    "artist": "Tribalistas",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  }
+]

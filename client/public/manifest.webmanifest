@@ -1,0 +1,17 @@
+{
+  "name": "Refrão — Quem reconhece primeiro?",
+  "short_name": "Refrão",
+  "description": "Jogo multiplayer brasileiro de adivinhar músicas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05090A",
+  "theme_color": "#05090A",
+  "icons": [
+    {
+      "src": "/assets/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

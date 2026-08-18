@@ -1,0 +1,538 @@
+[
+  {
+    "id": "pop-001",
+    "title": "Vamos Fugir",
+    "artist": "Sandy & Junior",
+    "year": 1996,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-002",
+    "title": "Encontrar Alguém",
+    "artist": "Sandy & Junior",
+    "year": 1999,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-003",
+    "title": "Sorte Grande",
+    "artist": "Ivete Sangalo",
+    "year": 1999,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-004",
+    "title": "Se Eu Não Te Amasse Tanto Assim",
+    "artist": "Ivete Sangalo",
+    "year": 2000,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-006",
+    "title": "Baba",
+    "artist": "Kelly Key",
+    "year": 2003,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-008",
+    "title": "Cedo ou Tarde",
+    "artist": "NX Zero",
+    "year": 2006,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-010",
+    "title": "Qual É",
+    "artist": "Sandy",
+    "year": 2007,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "pop-012",
+    "title": "Vou Deixar",
+    "artist": "Skank",
+    "year": 2003,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-013",
+    "title": "Downtown",
+    "artist": "Anitta e J Balvin",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-014",
+    "title": "Paradinha",
+    "artist": "Anitta",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-015",
+    "title": "K.O.",
+    "artist": "Pabllo Vittar",
+    "year": 2017,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-016",
+    "title": "Corpo Sensual",
+    "artist": "Pabllo Vittar",
+    "year": 2017,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-017",
+    "title": "Idiota",
+    "artist": "Jão",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-018",
+    "title": "Trevo (Tu)",
+    "artist": "ANAVITÓRIA e Tiago Iorc",
+    "year": 2016,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-019",
+    "title": "Sorte",
+    "artist": "Anavitória part. Tiago Iorc",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-020",
+    "title": "Coisa Boa",
+    "artist": "Gloria Groove",
+    "year": 2019,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-021",
+    "title": "Dona de Mim",
+    "artist": "Iza",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-022",
+    "title": "Menos é Mais",
+    "artist": "Iza",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-023",
+    "title": "Vermelho",
+    "artist": "Gloria Groove",
+    "year": 2018,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-024",
+    "title": "Meu Abrigo",
+    "artist": "Melim",
+    "year": 2018,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-026",
+    "title": "A Vida é Boa",
+    "artist": "Vitor Kley",
+    "year": 2019,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-028",
+    "title": "Só Depois do Carnaval",
+    "artist": "Lexa",
+    "year": 2019,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-029",
+    "title": "Boa Menina",
+    "artist": "Luísa Sonza",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-030",
+    "title": "Braba",
+    "artist": "Luísa Sonza",
+    "year": 2020,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-031",
+    "title": "Deixa",
+    "artist": "Priscilla Alcantara",
+    "year": 2016,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "pop-032",
+    "title": "Envolver",
+    "artist": "Anitta",
+    "year": 2021,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-033",
+    "title": "Girl from Rio",
+    "artist": "Anitta",
+    "year": 2021,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-034",
+    "title": "Por Supuesto",
+    "artist": "Marina Sena",
+    "year": 2021,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-035",
+    "title": "Chico",
+    "artist": "Luísa Sonza",
+    "year": 2022,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-066",
+    "title": "Show das Poderosas",
+    "artist": "Anitta",
+    "year": 2013,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-067",
+    "title": "Bang",
+    "artist": "Anitta",
+    "year": 2015,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-068",
+    "title": "Sua Cara",
+    "artist": "Major Lazer, Anitta e Pabllo Vittar",
+    "year": 2017,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-069",
+    "title": "Passa Mal",
+    "artist": "Pabllo Vittar",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-070",
+    "title": "Cheguei",
+    "artist": "Ludmilla",
+    "year": 2018,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-071",
+    "title": "Onda Diferente",
+    "artist": "Anitta, Ludmilla e Snoop Dogg",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-072",
+    "title": "Ritmo Perfeito",
+    "artist": "Anitta",
+    "year": 2019,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-073",
+    "title": "Você Partiu Meu Coração",
+    "artist": "Nego do Borel, Anitta e Wesley Safadão",
+    "year": 2010,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-074",
+    "title": "Contatinho",
+    "artist": "Léo Santana e Anitta",
+    "year": 2020,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-037",
+    "title": "Imaturo",
+    "artist": "Jão",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-038",
+    "title": "Me Lambe",
+    "artist": "Jão",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-039",
+    "title": "Essa Eu Fiz Pro Nosso Amor",
+    "artist": "Jão",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-040",
+    "title": "Acontece",
+    "artist": "Jão",
+    "year": 2021,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-041",
+    "title": "Pesadão",
+    "artist": "IZA",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-042",
+    "title": "Brisa",
+    "artist": "IZA",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-043",
+    "title": "Fé",
+    "artist": "IZA",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-044",
+    "title": "Penhasco",
+    "artist": "Luísa Sonza",
+    "year": 2021,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-045",
+    "title": "Cachorrinhas",
+    "artist": "Luísa Sonza",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-046",
+    "title": "Campo de Morango",
+    "artist": "Luísa Sonza",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-047",
+    "title": "A Dona Aranha",
+    "artist": "Luísa Sonza",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-048",
+    "title": "A Queda",
+    "artist": "Gloria Groove",
+    "year": 2021,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-049",
+    "title": "Bonekinha",
+    "artist": "Gloria Groove",
+    "year": 2021,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-050",
+    "title": "Boys Don’t Cry",
+    "artist": "Anitta",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-051",
+    "title": "Mil Veces",
+    "artist": "Anitta",
+    "year": 2023,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-052",
+    "title": "Medicina",
+    "artist": "Anitta",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-053",
+    "title": "O Sol",
+    "artist": "Vitor Kley",
+    "year": 2017,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-054",
+    "title": "Ouvi Dizer",
+    "artist": "Melim",
+    "year": 2018,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-055",
+    "title": "Amei Te Ver",
+    "artist": "Tiago Iorc",
+    "year": 2015,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-056",
+    "title": "Partilhar",
+    "artist": "Rubel",
+    "year": 2018,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-057",
+    "title": "Pupila",
+    "artist": "ANAVITÓRIA e Vitor Kley",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-058",
+    "title": "Agora Eu Quero Ir",
+    "artist": "ANAVITÓRIA",
+    "year": 2016,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-059",
+    "title": "Pilantra",
+    "artist": "Jão e Anitta",
+    "year": 2023,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-060",
+    "title": "Amor de Fim de Noite",
+    "artist": "Orochi",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-061",
+    "title": "Dengo",
+    "artist": "João Gomes",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-062",
+    "title": "Voltei Pra Mim",
+    "artist": "Marina Sena",
+    "year": 2022,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-063",
+    "title": "Ombrim",
+    "artist": "Marina Sena, Chicão do Piseiro e Roni Bruno",
+    "year": 2023,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-064",
+    "title": "Tangerina",
+    "artist": "Tiago Iorc",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-065",
+    "title": "Meu Talismã",
+    "artist": "IZA",
+    "year": 2019,
+    "difficulty": 2,
+    "popularity": 4
+  }
+]
