@@ -38,7 +38,7 @@ export function GenreVotingPage({ game }: { game: GameRoomApi }) {
           <p>
             {tab === "generos"
               ? "Escolha com calma. Samba e Reggae Brasileiro agora também têm catálogos próprios."
-              : "Os artistas ficam separados por estilo. No Modo Artista, as músicas e alternativas ficam focadas naquele artista."}
+              : "Escolha seu artista favorito. O modo fica focado nele, enquanto a categoria geral continua trazendo várias músicas dos artistas daquele estilo."}
           </p>
         </motion.div>
 
@@ -54,7 +54,7 @@ export function GenreVotingPage({ game }: { game: GameRoomApi }) {
         {tab === "generos" ? (
           <div className="genre-grid">
             {GENRE_VOTE_CHOICES.map((choice) => (
-              <GenreCard key={choice} genre={choice} votes={state.genreVotes[choice] ?? 0} selected={state.myVote === choice} onSelect={() => game.voteGenre(choice)} />
+              <GenreCard key={choice} genre={choice} votes={state.genreVotes[choice] ?? 0} selected={state.myVote === choice} onSelect={game.voteGenre} />
             ))}
           </div>
         ) : (
@@ -67,7 +67,7 @@ export function GenreVotingPage({ game }: { game: GameRoomApi }) {
                 </div>
                 <div className="genre-grid artist-grid">
                   {group.choices.map((choice) => (
-                    <GenreCard key={choice} genre={choice} votes={state.genreVotes[choice] ?? 0} selected={state.myVote === choice} onSelect={() => game.voteGenre(choice)} />
+                    <GenreCard key={choice} genre={choice} votes={state.genreVotes[choice] ?? 0} selected={state.myVote === choice} onSelect={game.voteGenre} />
                   ))}
                 </div>
               </section>

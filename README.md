@@ -151,3 +151,20 @@ Não incluído automaticamente nesta entrega — abaixo o caminho recomendado:
 - O Host inicia somente depois que todos os jogadores conectados escolherem.
 - A aba Artistas agora é organizada por estilo musical.
 - Novas categorias: Samba / Pagode e Reggae Brasileiro, ambas com catálogo local e expansão própria.
+
+## V11 - inicialização rápida no Render
+
+- O catálogo local fica disponível imediatamente ao iniciar o servidor.
+- Previews da Deezer são resolvidos somente quando a faixa é realmente sorteada.
+- A gravação do cache é assíncrona e agrupada para não bloquear cliques/socket.
+- Expansão dinâmica deixou de bloquear o cold start. Para habilitá-la em segundo plano, use `REFRAO_BACKGROUND_CATALOG_EXPANSION=true`.
+- Tela de revelação da resposta: 8 segundos.
+- Placar entre rodadas: 5 segundos.
+
+## V12 — catálogo de artistas + disco girando
+
+- Disco/capa volta a girar também na revelação da resposta.
+- 41 opções de Modo Artista, organizadas dentro do gênero correto.
+- Catálogo local ampliado para 924 músicas cadastradas, mantendo os novos artistas dentro de seus gêneros.
+- O modo por gênero também usa as novas faixas; o Modo Artista continua filtrando somente o artista escolhido.
+- Previews seguem sendo resolvidos sob demanda para preservar o boot rápido no Render.

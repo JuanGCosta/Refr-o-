@@ -534,5 +534,189 @@
     "year": 2019,
     "difficulty": 2,
     "popularity": 4
+  },
+  {
+    "id": "pop-075",
+    "title": "Sagrado Profano",
+    "artist": "Luísa Sonza",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-076",
+    "title": "Modo Turbo",
+    "artist": "Luísa Sonza",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-077",
+    "title": "Garupa",
+    "artist": "Luísa Sonza",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-078",
+    "title": "Penhasco2",
+    "artist": "Luísa Sonza",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-079",
+    "title": "Principalmente Me Sinto Arrasada",
+    "artist": "Luísa Sonza",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-080",
+    "title": "Coringa",
+    "artist": "Jão",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-081",
+    "title": "Meninos e Meninas",
+    "artist": "Jão",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-082",
+    "title": "Alinhamento Milenar",
+    "artist": "Jão",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-083",
+    "title": "Lobos",
+    "artist": "Jão",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-084",
+    "title": "Santo",
+    "artist": "Jão",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-085",
+    "title": "Olhos Vermelhos",
+    "artist": "Jão",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-086",
+    "title": "Vou Morrer Sozinho",
+    "artist": "Jão",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-087",
+    "title": "Me Gusta",
+    "artist": "Anitta",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-088",
+    "title": "Versions of Me",
+    "artist": "Anitta",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-089",
+    "title": "Funk Rave",
+    "artist": "Anitta",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-090",
+    "title": "Leilão",
+    "artist": "Gloria Groove",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-091",
+    "title": "Vício",
+    "artist": "Gloria Groove",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "pop-092",
+    "title": "Radar",
+    "artist": "Gloria Groove",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-093",
+    "title": "Bumbum de Ouro",
+    "artist": "Gloria Groove",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-094",
+    "title": "A Tua Voz",
+    "artist": "Gloria Groove",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "pop-095",
+    "title": "Nosso Primeiro Beijo",
+    "artist": "Gloria Groove",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-096",
+    "title": "Ameianoite",
+    "artist": "Gloria Groove",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "pop-097",
+    "title": "Apaga a Luz",
+    "artist": "Gloria Groove",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
   }
 ]

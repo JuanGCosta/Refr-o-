@@ -1,0 +1,21 @@
+REFRÃO V12.1 CLEAN — CORREÇÃO DO DEPLOY
+
+IMPORTANTE:
+Este ZIP NÃO contém .git e NÃO contém node_modules.
+
+Para atualizar:
+1. Não extraia este ZIP criando uma pasta refrao-v10 dentro do seu repositório.
+2. Abra a pasta principal do seu repositório, onde já existem package.json, client, server e shared.
+3. Extraia/copiar o CONTEÚDO deste ZIP para essa pasta principal e aceite substituir os arquivos.
+4. Se existir uma pasta extra chamada refrao-v10 na raiz do repositório, remova SOMENTE essa pasta extra.
+5. Depois rode:
+
+git add -A
+git commit -m "Corrige estrutura do Refrao V12"
+git push
+
+O Render conectado ao GitHub fará o novo deploy.
+
+Para testar local:
+npm install
+npm run dev

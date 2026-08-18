@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { memo } from "react";
 import {
   Flame, Sparkles, Guitar, Wheat, Mic2, Zap, Music, Headphones,
   Shuffle, LucideIcon, Check, Globe2, UserRound, Waves,
@@ -46,7 +45,19 @@ function isArtistChoice(choice: GenreChoice): choice is ArtistChoice {
   return ARTIST_CHOICES.includes(choice as ArtistChoice);
 }
 
-export function GenreCard({ genre, votes, selected, onSelect }: { genre: GenreChoice; votes: number; selected: boolean; onSelect: () => void; }) {
+interface GenreCardProps {
+  genre: GenreChoice;
+  votes: number;
+  selected: boolean;
+  onSelect: (genre: GenreChoice) => void;
+}
+
+/**
+ * Kept intentionally free of Framer Motion. This screen can render many cards
+ * on mobile, and CSS transforms are much cheaper than creating an animation
+ * controller for every genre/artist option.
+ */
+export const GenreCard = memo(function GenreCard({ genre, votes, selected, onSelect }: GenreCardProps) {
   const artistMode = isArtistChoice(genre);
   const Icon = artistMode ? UserRound : (GENRE_ICONS[genre] ?? Music);
   const subtitle = artistMode
@@ -54,12 +65,11 @@ export function GenreCard({ genre, votes, selected, onSelect }: { genre: GenreCh
     : (SUB[genre] ?? "Categoria musical");
 
   return (
-    <motion.button
+    <button
       type="button"
-      onClick={onSelect}
-      whileTap={{ scale: .975 }}
-      whileHover={{ y: -2 }}
+      onClick={() => onSelect(genre)}
       className={`genre-card ${artistMode ? "genre-artist" : `genre-${genre}`} ${selected ? "is-selected" : ""}`}
+      aria-pressed={selected}
     >
       <span className="genre-card-icon"><Icon size={21} strokeWidth={2.1} /></span>
       <span className="min-w-0 text-left">
@@ -67,6 +77,6 @@ export function GenreCard({ genre, votes, selected, onSelect }: { genre: GenreCh
         <small>{subtitle}</small>
       </span>
       <span className="genre-votes">{selected ? <Check size={14} strokeWidth={3}/> : votes}</span>
-    </motion.button>
+    </button>
   );
-}
+});

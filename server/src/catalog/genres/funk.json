@@ -470,5 +470,189 @@
     "year": 2022,
     "difficulty": 2,
     "popularity": 4
+  },
+  {
+    "id": "funk-066",
+    "title": "Encosta na Parede",
+    "artist": "MC Pedrinho",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-067",
+    "title": "Se Prepara",
+    "artist": "MC Pedrinho",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-068",
+    "title": "Dom Dom Dom",
+    "artist": "MC Pedrinho",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-069",
+    "title": "Hit do Verão",
+    "artist": "MC Pedrinho",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-070",
+    "title": "4M no Toque",
+    "artist": "MC Pedrinho",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-071",
+    "title": "Eu Vou Te Pegar",
+    "artist": "MC Pedrinho",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-072",
+    "title": "Nosso Amor",
+    "artist": "MC Pedrinho",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-073",
+    "title": "Bem Querer",
+    "artist": "MC Livinho",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-074",
+    "title": "Na Ponta Ela Fica",
+    "artist": "MC Livinho",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-075",
+    "title": "Tenebrosa",
+    "artist": "MC Livinho",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-076",
+    "title": "Tudo de Bom",
+    "artist": "MC Livinho",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-077",
+    "title": "Pepeca do Mal",
+    "artist": "MC Livinho",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-078",
+    "title": "Hoje Eu Vou Parar na Gaiola",
+    "artist": "MC Livinho",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-079",
+    "title": "Quem É",
+    "artist": "MC Daleste",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-080",
+    "title": "Deusa da Ostentação",
+    "artist": "MC Daleste",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "funk-081",
+    "title": "Mina de Vermelho",
+    "artist": "MC Daleste",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-082",
+    "title": "Angra dos Reis",
+    "artist": "MC Daleste",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-083",
+    "title": "Água na Boca",
+    "artist": "MC Daleste",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "funk-084",
+    "title": "Ostentação Fora do Normal",
+    "artist": "MC Daleste",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-085",
+    "title": "Mãe de Traficante",
+    "artist": "MC Daleste",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-086",
+    "title": "Bonde dos Menor",
+    "artist": "MC Daleste",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "funk-087",
+    "title": "Todas as Quebradas 3",
+    "artist": "MC Daleste",
+    "year": 0,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "funk-088",
+    "title": "Dia de Visita",
+    "artist": "MC Daleste",
+    "year": 0,
+    "difficulty": 4,
+    "popularity": 2
   }
 ]

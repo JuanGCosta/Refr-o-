@@ -29,7 +29,14 @@ import { generatePlayerId, generateSessionToken } from "../utils/session";
 import { buildSongQueue, QueuedSong } from "../game/songSelection";
 import { buildAlternatives } from "../game/alternatives";
 import { calculateScore } from "../game/scoring";
-import { getCatalogByArtistChoice, getCatalogByGenre, getRawCatalogByArtistChoice, getRawCatalogByGenre } from "../catalog/catalogService";
+import {
+  getCatalogByArtistChoice,
+  getCatalogByGenre,
+  getRawCatalogByArtistChoice,
+  getRawCatalogByGenre,
+  getFreshPreviewUrl,
+  getCachedCoverUrl,
+} from "../catalog/catalogService";
 import { secureRandomIndex } from "../utils/random";
 
 interface InternalPlayer {
@@ -71,8 +78,8 @@ interface ActiveRound {
 }
 
 const DISCONNECT_GRACE_LOBBY_MS = 30_000;
-const ROUND_RESULT_DISPLAY_MS = 5_000;
-const SCOREBOARD_DISPLAY_MS = 4_000;
+const ROUND_RESULT_DISPLAY_MS = 8_000;
+const SCOREBOARD_DISPLAY_MS = 5_000;
 const COUNTDOWN_STEP_MS = 900;
 const RECENTLY_PLAYED_CAP = 60;
 
@@ -364,6 +371,11 @@ export class Room {
   }
 
   private runCountdownThenStart(nextIndex: number): void {
+    // Resolve the signed preview in parallel with the countdown. It never blocks
+    // the room state, but usually means the audio is already cached when PLAYING starts.
+    const upcomingSong = this.songQueue[nextIndex];
+    if (upcomingSong) void getFreshPreviewUrl(upcomingSong.id);
+
     this.setStatus("COUNTDOWN");
     let value = 3;
     const tick = () => {
@@ -517,7 +529,7 @@ export class Room {
       song: {
         title: round.song.title,
         artist: round.song.artist,
-        coverUrl: round.song.coverUrl,
+        coverUrl: getCachedCoverUrl(round.song.id) || round.song.coverUrl,
         genre: round.song.genre,
         year: round.song.year,
       },

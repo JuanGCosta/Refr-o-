@@ -454,5 +454,301 @@
     "year": 1982,
     "difficulty": 2,
     "popularity": 4
+  },
+  {
+    "id": "moda-059",
+    "title": "Amargurado",
+    "artist": "Tião Carreiro & Pardinho",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-060",
+    "title": "Cabelo Loiro",
+    "artist": "Tião Carreiro & Pardinho",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-061",
+    "title": "Boiadeiro Punho de Aço",
+    "artist": "Tião Carreiro & Pardinho",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-062",
+    "title": "Travessia do Araguaia",
+    "artist": "Tião Carreiro & Pardinho",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-063",
+    "title": "A Vaca Já Foi pro Brejo",
+    "artist": "Tião Carreiro & Pardinho",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-064",
+    "title": "No Dia em Que Eu Saí de Casa",
+    "artist": "Zezé Di Camargo & Luciano",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-065",
+    "title": "Pão de Mel",
+    "artist": "Zezé Di Camargo & Luciano",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-066",
+    "title": "Dou a Vida por um Beijo",
+    "artist": "Zezé Di Camargo & Luciano",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-067",
+    "title": "Tarde Demais",
+    "artist": "Zezé Di Camargo & Luciano",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-068",
+    "title": "Pare!",
+    "artist": "Zezé Di Camargo & Luciano",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-069",
+    "title": "Saudade Bandida",
+    "artist": "Zezé Di Camargo & Luciano",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "moda-070",
+    "title": "Mexe Que É Bom",
+    "artist": "Zezé Di Camargo & Luciano",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "moda-071",
+    "title": "Aceita Que Dói Menos",
+    "artist": "Trio Parada Dura",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-072",
+    "title": "Barco de Papel",
+    "artist": "Trio Parada Dura",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-073",
+    "title": "Castelo de Amor",
+    "artist": "Trio Parada Dura",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-074",
+    "title": "Fazenda São Francisco",
+    "artist": "Trio Parada Dura",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-075",
+    "title": "Sinônimos",
+    "artist": "Chitãozinho & Xororó",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-076",
+    "title": "Brincar de Ser Feliz",
+    "artist": "Chitãozinho & Xororó",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-077",
+    "title": "Página de Amigos",
+    "artist": "Chitãozinho & Xororó",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-078",
+    "title": "Galopeira",
+    "artist": "Chitãozinho & Xororó",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-079",
+    "title": "No Rancho Fundo",
+    "artist": "Chitãozinho & Xororó",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-080",
+    "title": "Alô",
+    "artist": "Chitãozinho & Xororó",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "moda-081",
+    "title": "Fogão de Lenha",
+    "artist": "Chitãozinho & Xororó",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "moda-082",
+    "title": "Vestido de Seda",
+    "artist": "Teodoro & Sampaio",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-083",
+    "title": "Paixão Proibida",
+    "artist": "Teodoro & Sampaio",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-084",
+    "title": "Mulher Chorona",
+    "artist": "Teodoro & Sampaio",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-085",
+    "title": "Pitoco",
+    "artist": "Teodoro & Sampaio",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-086",
+    "title": "É Mentira Dela",
+    "artist": "Teodoro & Sampaio",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-087",
+    "title": "Saudade Pica-Pau",
+    "artist": "Teodoro & Sampaio",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "moda-088",
+    "title": "Alô Mulherada",
+    "artist": "Teodoro & Sampaio",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "moda-089",
+    "title": "Se a Casa Cair",
+    "artist": "Teodoro & Sampaio",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "moda-090",
+    "title": "Sonhei com Você",
+    "artist": "Milionário & José Rico",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-091",
+    "title": "A Carta",
+    "artist": "Milionário & José Rico",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "moda-092",
+    "title": "De Longe Também Se Ama",
+    "artist": "Milionário & José Rico",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-093",
+    "title": "Solidão",
+    "artist": "Milionário & José Rico",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-094",
+    "title": "Sonho de um Caminhoneiro",
+    "artist": "Milionário & José Rico",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "moda-095",
+    "title": "Jogo do Amor",
+    "artist": "Milionário & José Rico",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
   }
 ]

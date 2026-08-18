@@ -129,9 +129,25 @@ function loadCache(): Cache {
   }
 }
 
-function saveCache(cache: Cache): void {
-  fs.mkdirSync(path.dirname(CACHE_PATH), { recursive: true });
-  fs.writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2), "utf8");
+let cacheSaveTimer: NodeJS.Timeout | null = null;
+
+/**
+ * Cache writes used to be synchronous and happened repeatedly while the Deezer
+ * catalog was being resolved. On Render this could block the Node event loop
+ * long enough for genre/artist clicks to look frozen. Persist in the background
+ * and coalesce bursts into a single write instead.
+ */
+function queueCacheSave(): void {
+  if (cacheSaveTimer) return;
+  cacheSaveTimer = setTimeout(() => {
+    cacheSaveTimer = null;
+    const snapshot = JSON.stringify(cacheState, null, 2);
+    void fs.promises
+      .mkdir(path.dirname(CACHE_PATH), { recursive: true })
+      .then(() => fs.promises.writeFile(CACHE_PATH, snapshot, "utf8"))
+      .catch((error) => console.warn("[catalog] não foi possível persistir o cache:", error));
+  }, 750);
+  cacheSaveTimer.unref?.();
 }
 
 interface DeezerTrack {
@@ -197,7 +213,7 @@ async function searchDeezer(title: string, artist: string): Promise<DeezerTrack 
   const query = encodeURIComponent(`${title} ${primaryArtist(artist)}`);
   const url = `https://api.deezer.com/search?q=${query}&limit=10`;
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, { signal: AbortSignal.timeout(5_000) });
     if (!res.ok) return null;
     const json = (await res.json()) as { data: DeezerTrack[] };
     const ranked = (json.data ?? [])
@@ -261,7 +277,7 @@ function popularityForArtistRank(index: number): 1 | 2 | 3 | 4 | 5 {
 async function findDeezerArtist(name: string): Promise<DeezerArtist | null> {
   try {
     const query = encodeURIComponent(name);
-    const res = await fetch(`https://api.deezer.com/search/artist?q=${query}&limit=8`);
+    const res = await fetch(`https://api.deezer.com/search/artist?q=${query}&limit=8`, { signal: AbortSignal.timeout(5_000) });
     if (!res.ok) return null;
     const json = (await res.json()) as { data?: DeezerArtist[] };
     const expected = normalizeText(name);
@@ -279,7 +295,7 @@ async function findDeezerArtist(name: string): Promise<DeezerArtist | null> {
 
 async function fetchArtistTopTracks(artistId: number): Promise<DeezerTrack[]> {
   try {
-    const res = await fetch(`https://api.deezer.com/artist/${artistId}/top?limit=${EXPANSION_FETCH_LIMIT}`);
+    const res = await fetch(`https://api.deezer.com/artist/${artistId}/top?limit=${EXPANSION_FETCH_LIMIT}`, { signal: AbortSignal.timeout(5_000) });
     if (!res.ok) return [];
     const json = (await res.json()) as { data?: DeezerTrack[] };
     return (json.data ?? []).filter((track) => !!track.preview && !!track.title && !!track.artist?.name);
@@ -349,7 +365,7 @@ async function expandPriorityGenresFromDeezer(): Promise<void> {
     console.log(`[catalog]   ${genre}: +${addedGenre} -> ${rawByGenre[genre].length}/${target}`);
   }
 
-  if (addedTotal > 0) saveCache(cacheState);
+  if (addedTotal > 0) queueCacheSave();
   rebuildCatalogIndexes();
   console.log(`[catalog] expansão V11 concluída: ${allSongs.length} músicas cadastradas nesta sessão`);
 }
@@ -401,12 +417,15 @@ async function expandArtistModesFromDeezer(): Promise<void> {
     console.log(`[catalog]   artista ${meta.label}: ${availableForArtist} faixas (${added} novas)`);
   }
 
-  if (addedTotal > 0) saveCache(cacheState);
+  if (addedTotal > 0) queueCacheSave();
   rebuildCatalogIndexes();
 }
 
 function artistMatchesChoice(songArtist: string, choice: ArtistChoice): boolean {
-  return normalizeText(songArtist) === normalizeText(ARTIST_META[choice].artist);
+  const expected = normalizeText(ARTIST_META[choice].artist);
+  const actual = normalizeText(songArtist);
+  if (!expected || !actual) return false;
+  return actual === expected || actual.includes(expected) || expected.includes(actual);
 }
 
 function extractPreviewExpiryMs(previewUrl: string): number | null {
@@ -430,20 +449,34 @@ function isFreshPreview(entry: CacheEntry | undefined): entry is CacheEntry {
   return now - entry.resolvedAt < FALLBACK_PREVIEW_TTL_MS;
 }
 
-async function refreshSong(song: CatalogSong): Promise<CacheEntry | null> {
-  const track = await searchDeezer(song.title, song.artist);
-  if (!track || !track.preview) return null;
+const refreshInFlight = new Map<string, Promise<CacheEntry | null>>();
 
-  const entry: CacheEntry = {
-    previewUrl: track.preview,
-    coverUrl: track.album?.cover_big || track.album?.cover_medium || "",
-    resolvedAt: Date.now(),
-    title: track.title,
-    artist: track.artist?.name ?? song.artist,
-  };
-  cacheState[song.id] = entry;
-  saveCache(cacheState);
-  return entry;
+async function refreshSong(song: CatalogSong): Promise<CacheEntry | null> {
+  const existing = refreshInFlight.get(song.id);
+  if (existing) return existing;
+
+  const task = (async () => {
+    const track = await searchDeezer(song.title, song.artist);
+    if (!track || !track.preview) return null;
+
+    const entry: CacheEntry = {
+      previewUrl: track.preview,
+      coverUrl: track.album?.cover_big || track.album?.cover_medium || "",
+      resolvedAt: Date.now(),
+      title: track.title,
+      artist: track.artist?.name ?? song.artist,
+    };
+    cacheState[song.id] = entry;
+    queueCacheSave();
+    return entry;
+  })();
+
+  refreshInFlight.set(song.id, task);
+  try {
+    return await task;
+  } finally {
+    refreshInFlight.delete(song.id);
+  }
 }
 
 let resolvedByGenre = Object.fromEntries(
@@ -470,6 +503,14 @@ export async function getFreshPreviewUrl(songId: string): Promise<string | null>
   return refreshed?.previewUrl ?? null;
 }
 
+/** Returns cover metadata already known for a song without making a network call. */
+export function getCachedCoverUrl(songId: string): string {
+  const song = catalogById.get(songId);
+  const cached = cacheState[songId];
+  if (!song || !cached) return "";
+  return isTrackMatch(song, { title: cached.title, artist: cached.artist }) ? cached.coverUrl : "";
+}
+
 async function resolveOne(song: CatalogSong): Promise<ResolvedSong | null> {
   const cached = cacheState[song.id];
 
@@ -491,39 +532,52 @@ export function initCatalog(): Promise<void> {
   return readyPromise;
 }
 
-async function doInitCatalog(): Promise<void> {
-  await expandPriorityGenresFromDeezer();
-  await expandArtistModesFromDeezer();
-
-  resolutionStats = { total: allSongs.length, resolved: 0, failed: 0 };
-  console.log(`[catalog] preparando ${allSongs.length} músicas...`);
-
-  const results: ResolvedSong[] = [];
-  for (let i = 0; i < allSongs.length; i += CONCURRENCY) {
-    const batch = allSongs.slice(i, i + CONCURRENCY);
-    const resolved = await Promise.all(batch.map((song) => resolveOne(song)));
-    resolved.forEach((r) => {
-      if (r) {
-        results.push(r);
-        resolutionStats.resolved += 1;
-      } else {
-        resolutionStats.failed += 1;
-      }
-    });
-    if (i + CONCURRENCY < allSongs.length) await sleep(DELAY_BETWEEN_BATCHES_MS);
-  }
-
+function rebuildPlayableCatalog(): void {
   const byGenre = Object.fromEntries(
     GENRES.map((genre) => [genre, [] as ResolvedSong[]])
   ) as Record<Genre, ResolvedSong[]>;
-  results.forEach((song) => byGenre[song.genre].push(song));
-  resolvedByGenre = byGenre;
 
-  console.log(
-    `[catalog] pronto: ${resolutionStats.resolved}/${resolutionStats.total} músicas disponíveis ` +
-      `(${resolutionStats.failed} indisponíveis foram excluídas do sorteio)`
-  );
-  GENRES.forEach((g) => console.log(`[catalog]   ${g}: ${byGenre[g].length} músicas prontas`));
+  allSongs.forEach((song) => {
+    const cached = cacheState[song.id];
+    const cacheMatches = !!cached && isTrackMatch(song, { title: cached.title, artist: cached.artist });
+    byGenre[song.genre].push({
+      ...song,
+      // The client receives /audio/:id from Room.startRound. The real signed
+      // Deezer preview is resolved lazily only when that round is played.
+      previewUrl: `/audio/${encodeURIComponent(song.id)}`,
+      coverUrl: cacheMatches ? cached.coverUrl : "",
+    });
+  });
+
+  resolvedByGenre = byGenre;
+  resolutionStats = { total: allSongs.length, resolved: allSongs.length, failed: 0 };
+}
+
+async function doInitCatalog(): Promise<void> {
+  // Fast boot: all genre JSON files are already loaded by Node. Do not perform
+  // hundreds of Deezer calls before allowing users into a room.
+  rebuildCatalogIndexes();
+  rebuildPlayableCatalog();
+
+  console.log(`[catalog] pronto instantaneamente: ${allSongs.length} músicas locais; previews sob demanda`);
+  GENRES.forEach((genre) => console.log(`[catalog]   ${genre}: ${resolvedByGenre[genre].length} músicas`));
+
+  // Dynamic expansion is intentionally opt-in. It can still be enabled on a
+  // larger server, but Render's cold start should stay fast by default.
+  if (process.env.REFRAO_BACKGROUND_CATALOG_EXPANSION === "true") {
+    setTimeout(() => {
+      void (async () => {
+        try {
+          await expandPriorityGenresFromDeezer();
+          await expandArtistModesFromDeezer();
+          rebuildPlayableCatalog();
+          console.log(`[catalog] expansão em segundo plano concluída: ${allSongs.length} músicas`);
+        } catch (error) {
+          console.warn("[catalog] expansão em segundo plano ignorada:", error);
+        }
+      })();
+    }, 1_500).unref?.();
+  }
 }
 
 export function getCatalogByGenre(): Record<Genre, ResolvedSong[]> {

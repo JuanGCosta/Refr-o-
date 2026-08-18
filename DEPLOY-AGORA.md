@@ -41,12 +41,11 @@ Abra:
 
 `https://SEU-SERVICO.onrender.com/health`
 
-Enquanto o catálogo estiver sendo preparado, `ready` será `false`.
-Quando estiver jogável, aparecerá:
+O catálogo local agora é carregado praticamente de imediato. Quando o serviço estiver jogável, aparecerá:
 
 `"ready": true`
 
-Na home do jogo os botões ficam desativados enquanto o servidor aquece.
+Os previews de áudio são resolvidos sob demanda e a próxima faixa começa a ser pré-carregada durante a contagem regressiva.
 
 ---
 

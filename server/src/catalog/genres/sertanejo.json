@@ -478,5 +478,397 @@
     "year": 2022,
     "difficulty": 2,
     "popularity": 4
+  },
+  {
+    "id": "sert-071",
+    "title": "Vidinha de Balada",
+    "artist": "Henrique & Juliano",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-072",
+    "title": "Até Você Voltar",
+    "artist": "Henrique & Juliano",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-073",
+    "title": "Recaídas",
+    "artist": "Henrique & Juliano",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-074",
+    "title": "Aquela Pessoa",
+    "artist": "Henrique & Juliano",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-075",
+    "title": "Flor e o Beija-Flor",
+    "artist": "Henrique & Juliano",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-076",
+    "title": "Quem Pegou, Pegou",
+    "artist": "Henrique & Juliano",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-077",
+    "title": "Vai Que Bebereis",
+    "artist": "Henrique & Juliano",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-078",
+    "title": "Rasteira",
+    "artist": "Henrique & Juliano",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-079",
+    "title": "Não Passa Vontade",
+    "artist": "Henrique & Juliano",
+    "year": 0,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "sert-080",
+    "title": "Status Que Eu Não Queria",
+    "artist": "Zé Neto & Cristiano",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-081",
+    "title": "Bebida na Ferida",
+    "artist": "Zé Neto & Cristiano",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-082",
+    "title": "Ferida Curada",
+    "artist": "Zé Neto & Cristiano",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-083",
+    "title": "Ela e Ela",
+    "artist": "Zé Neto & Cristiano",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-084",
+    "title": "Alô Ambev",
+    "artist": "Zé Neto & Cristiano",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-085",
+    "title": "Você Beberia ou Não Beberia?",
+    "artist": "Zé Neto & Cristiano",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-086",
+    "title": "Um Mês e Pouco",
+    "artist": "Zé Neto & Cristiano",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-087",
+    "title": "Pátio do Posto",
+    "artist": "Zé Neto & Cristiano",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-088",
+    "title": "Amante Não Tem Lar",
+    "artist": "Marília Mendonça",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-089",
+    "title": "Como Faz Com Ela",
+    "artist": "Marília Mendonça",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-090",
+    "title": "Alô Porteiro",
+    "artist": "Marília Mendonça",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-091",
+    "title": "Bem Pior Que Eu",
+    "artist": "Marília Mendonça",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-092",
+    "title": "Troca de Calçada",
+    "artist": "Marília Mendonça",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-093",
+    "title": "Leão",
+    "artist": "Marília Mendonça",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-094",
+    "title": "Estranho",
+    "artist": "Marília Mendonça",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-095",
+    "title": "Intenção",
+    "artist": "Marília Mendonça",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-096",
+    "title": "Dona de Mim",
+    "artist": "Ana Castela",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-097",
+    "title": "Tô Voltando",
+    "artist": "Ana Castela",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-098",
+    "title": "Roça em Mim",
+    "artist": "Ana Castela",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-099",
+    "title": "Carinha de Bebê",
+    "artist": "Ana Castela",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-100",
+    "title": "Fronteira",
+    "artist": "Ana Castela",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-101",
+    "title": "Palhaça",
+    "artist": "Ana Castela",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-102",
+    "title": "Canudinho",
+    "artist": "Ana Castela",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-103",
+    "title": "Minha Herança",
+    "artist": "Ana Castela",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-104",
+    "title": "Voa Beija-Flor",
+    "artist": "Jorge & Mateus",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-105",
+    "title": "Logo Eu",
+    "artist": "Jorge & Mateus",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-106",
+    "title": "Enquanto Houver Razões",
+    "artist": "Jorge & Mateus",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-107",
+    "title": "Seu Astral",
+    "artist": "Jorge & Mateus",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-108",
+    "title": "Pra Sempre Com Você",
+    "artist": "Jorge & Mateus",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-109",
+    "title": "Louca de Saudade",
+    "artist": "Jorge & Mateus",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-110",
+    "title": "Tijolão",
+    "artist": "Jorge & Mateus",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-111",
+    "title": "Cheirosa",
+    "artist": "Jorge & Mateus",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-112",
+    "title": "Sinais",
+    "artist": "Luan Santana",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-113",
+    "title": "Amar Não É Pecado",
+    "artist": "Luan Santana",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "sert-114",
+    "title": "Nega",
+    "artist": "Luan Santana",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-115",
+    "title": "Tudo Que Você Quiser",
+    "artist": "Luan Santana",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-116",
+    "title": "Eu, Você, o Mar e Ela",
+    "artist": "Luan Santana",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "sert-117",
+    "title": "Acordando o Prédio",
+    "artist": "Luan Santana",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-118",
+    "title": "Dia, Lugar e Hora",
+    "artist": "Luan Santana",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "sert-119",
+    "title": "Chuva de Arroz",
+    "artist": "Luan Santana",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
   }
 ]

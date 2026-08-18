@@ -486,5 +486,301 @@
     "year": 2014,
     "difficulty": 2,
     "popularity": 4
+  },
+  {
+    "id": "rap-065",
+    "title": "Fórmula Mágica da Paz",
+    "artist": "Racionais MC's",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-066",
+    "title": "Fim de Semana no Parque",
+    "artist": "Racionais MC's",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-067",
+    "title": "Mágico de Oz",
+    "artist": "Racionais MC's",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-068",
+    "title": "Crime Vai e Vem",
+    "artist": "Racionais MC's",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-069",
+    "title": "Eu Não Pedi Pra Nascer",
+    "artist": "Facção Central",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-070",
+    "title": "Castelo Triste",
+    "artist": "Facção Central",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-071",
+    "title": "Desculpa Mãe",
+    "artist": "Facção Central",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-072",
+    "title": "12 de Outubro",
+    "artist": "Facção Central",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-073",
+    "title": "Hoje Deus Anda de Blindado",
+    "artist": "Facção Central",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-074",
+    "title": "Isso Aqui É Uma Guerra",
+    "artist": "Facção Central",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-075",
+    "title": "A Guerra Não Vai Acabar",
+    "artist": "Facção Central",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-076",
+    "title": "Castelo de Madeira",
+    "artist": "A Familia",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-077",
+    "title": "Brinquedo Assassino",
+    "artist": "A Familia",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-078",
+    "title": "Sopra Lobo Mal",
+    "artist": "A Familia",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-079",
+    "title": "Depois das Rosas",
+    "artist": "A Familia",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-080",
+    "title": "Entre Anjos e Demônios",
+    "artist": "A Familia",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-081",
+    "title": "O Sonho nos Mantém Vivos",
+    "artist": "A Familia",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-082",
+    "title": "Por Trás dos Bastidores",
+    "artist": "A Familia",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-083",
+    "title": "Gritos em Silêncio",
+    "artist": "A Familia",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-084",
+    "title": "Cama de Casal",
+    "artist": "Hungria Hip Hop",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-085",
+    "title": "Carruagem",
+    "artist": "Hungria Hip Hop",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-086",
+    "title": "Zorro do Asfalto",
+    "artist": "Hungria Hip Hop",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-087",
+    "title": "Dubai",
+    "artist": "Hungria Hip Hop",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-088",
+    "title": "Meu Carona",
+    "artist": "Hungria Hip Hop",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-089",
+    "title": "Lembranças",
+    "artist": "Hungria Hip Hop",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-090",
+    "title": "Astronauta",
+    "artist": "Hungria Hip Hop",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-091",
+    "title": "Não Tenho Freio",
+    "artist": "Hungria Hip Hop",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-092",
+    "title": "Primeiro Milhão",
+    "artist": "Hungria Hip Hop",
+    "year": 0,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "rap-093",
+    "title": "Um Brinde pra Nós",
+    "artist": "Hungria Hip Hop",
+    "year": 0,
+    "difficulty": 4,
+    "popularity": 2
+  },
+  {
+    "id": "rap-094",
+    "title": "Oitavo Anjo",
+    "artist": "509-E",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-095",
+    "title": "Saudades Mil",
+    "artist": "509-E",
+    "year": 0,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "rap-096",
+    "title": "Noite Infeliz",
+    "artist": "509-E",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-097",
+    "title": "Só os Fortes",
+    "artist": "509-E",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-098",
+    "title": "Sem Palavras",
+    "artist": "509-E",
+    "year": 0,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "rap-099",
+    "title": "De A a Z",
+    "artist": "509-E",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-100",
+    "title": "Uh Barato É Louco",
+    "artist": "509-E",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
+  },
+  {
+    "id": "rap-101",
+    "title": "Mile Dias",
+    "artist": "509-E",
+    "year": 0,
+    "difficulty": 3,
+    "popularity": 3
   }
 ]
