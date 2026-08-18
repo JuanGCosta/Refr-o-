@@ -3,6 +3,7 @@
 export type Genre =
   | "funk"
   | "pop"
+  | "pop_internacional"
   | "sertanejo"
   | "modao"
   | "rap"
@@ -10,17 +11,51 @@ export type Genre =
   | "mpb"
   | "acustico";
 
-export type GenreChoice = Genre | "misturadao";
+export type ArtistChoice =
+  | "artist-henrique-juliano"
+  | "artist-jorge-mateus"
+  | "artist-marilia-mendonca"
+  | "artist-gusttavo-lima"
+  | "artist-ze-neto-cristiano"
+  | "artist-matue"
+  | "artist-teto"
+  | "artist-veigh"
+  | "artist-mc-kevin-o-chris"
+  | "artist-chitaozinho-xororo"
+  | "artist-taylor-swift"
+  | "artist-the-weeknd";
+
+export type GenreChoice = Genre | "misturadao" | ArtistChoice;
+export type DirectMusicChoice = Genre | ArtistChoice;
 
 export const GENRES: Genre[] = [
-  "funk", "pop", "sertanejo", "modao", "rap", "trap", "mpb", "acustico",
+  "funk", "pop", "pop_internacional", "sertanejo", "modao", "rap", "trap", "mpb", "acustico",
 ];
 
-export const GENRE_CHOICES: GenreChoice[] = [...GENRES, "misturadao"];
+export const GENRE_VOTE_CHOICES: (Genre | "misturadao")[] = [...GENRES, "misturadao"];
+
+export const ARTIST_CHOICES: ArtistChoice[] = [
+  "artist-henrique-juliano",
+  "artist-jorge-mateus",
+  "artist-marilia-mendonca",
+  "artist-gusttavo-lima",
+  "artist-ze-neto-cristiano",
+  "artist-matue",
+  "artist-teto",
+  "artist-veigh",
+  "artist-mc-kevin-o-chris",
+  "artist-chitaozinho-xororo",
+  "artist-taylor-swift",
+  "artist-the-weeknd",
+];
+
+export const GENRE_CHOICES: GenreChoice[] = [...GENRE_VOTE_CHOICES, ...ARTIST_CHOICES];
+export const DIRECT_MUSIC_CHOICES: DirectMusicChoice[] = [...GENRES, ...ARTIST_CHOICES];
 
 export const GENRE_LABELS: Record<Genre, string> = {
   funk: "Funk",
   pop: "Pop Brasileiro",
+  pop_internacional: "Pop Internacional",
   sertanejo: "Sertanejo",
   modao: "Modão / Raiz",
   rap: "Rap Nacional",
@@ -29,9 +64,25 @@ export const GENRE_LABELS: Record<Genre, string> = {
   acustico: "Acústico / Poesia",
 };
 
+export const ARTIST_META: Record<ArtistChoice, { label: string; artist: string; genre: Genre }> = {
+  "artist-henrique-juliano": { label: "Henrique & Juliano", artist: "Henrique & Juliano", genre: "sertanejo" },
+  "artist-jorge-mateus": { label: "Jorge & Mateus", artist: "Jorge & Mateus", genre: "sertanejo" },
+  "artist-marilia-mendonca": { label: "Marília Mendonça", artist: "Marília Mendonça", genre: "sertanejo" },
+  "artist-gusttavo-lima": { label: "Gusttavo Lima", artist: "Gusttavo Lima", genre: "sertanejo" },
+  "artist-ze-neto-cristiano": { label: "Zé Neto & Cristiano", artist: "Zé Neto & Cristiano", genre: "sertanejo" },
+  "artist-matue": { label: "Matuê", artist: "Matuê", genre: "trap" },
+  "artist-teto": { label: "Teto", artist: "Teto", genre: "trap" },
+  "artist-veigh": { label: "Veigh", artist: "Veigh", genre: "trap" },
+  "artist-mc-kevin-o-chris": { label: "MC Kevin o Chris", artist: "MC Kevin o Chris", genre: "funk" },
+  "artist-chitaozinho-xororo": { label: "Chitãozinho & Xororó", artist: "Chitãozinho & Xororó", genre: "modao" },
+  "artist-taylor-swift": { label: "Taylor Swift", artist: "Taylor Swift", genre: "pop_internacional" },
+  "artist-the-weeknd": { label: "The Weeknd", artist: "The Weeknd", genre: "pop_internacional" },
+};
+
 export const GENRE_CHOICE_LABELS: Record<GenreChoice, string> = {
   ...GENRE_LABELS,
   misturadao: "Misturadão",
+  ...(Object.fromEntries(ARTIST_CHOICES.map((choice) => [choice, ARTIST_META[choice].label])) as Record<ArtistChoice, string>),
 };
 
 export type Difficulty = 1 | 2 | 3 | 4;

@@ -2,6 +2,7 @@ import type { Server as IOServer } from "socket.io";
 import {
   ClientToServerEvents,
   ServerToClientEvents,
+  ArtistChoice,
   Genre,
   GenreChoice,
   DifficultyMode,
@@ -25,10 +26,10 @@ import {
   ROUND_DURATION_OPTIONS_MS,
 } from "@shared/types";
 import { generatePlayerId, generateSessionToken } from "../utils/session";
-import { buildSongQueue } from "../game/songSelection";
+import { buildSongQueue, QueuedSong } from "../game/songSelection";
 import { buildAlternatives } from "../game/alternatives";
 import { calculateScore } from "../game/scoring";
-import { getCatalogByGenre, getRawCatalogByGenre } from "../catalog/catalogService";
+import { getCatalogByArtistChoice, getCatalogByGenre, getRawCatalogByArtistChoice, getRawCatalogByGenre } from "../catalog/catalogService";
 import { secureRandomIndex } from "../utils/random";
 
 interface InternalPlayer {
@@ -61,7 +62,7 @@ interface ActiveRoundAnswer {
 
 interface ActiveRound {
   index: number;
-  song: ResolvedSong;
+  song: QueuedSong;
   options: { label: string; isCorrect: boolean }[];
   correctIndex: number;
   serverStartTime: number;
@@ -85,7 +86,7 @@ export class Room {
   settings: RoomSettings = { roundCount: 10, roundDurationMs: ROUND_DURATION_MS, difficultyMode: "equilibrado" };
   genreVotes = new Map<string, GenreChoice>();
   selectedGenre: GenreChoice | null = null;
-  songQueue: ResolvedSong[] = [];
+  songQueue: QueuedSong[] = [];
   currentRoundIndex = -1;
   currentRound: ActiveRound | null = null;
   recentlyPlayedIds = new Set<string>();
@@ -346,6 +347,7 @@ export class Room {
 
     this.songQueue = buildSongQueue({
       catalogByGenre: getCatalogByGenre(),
+      catalogByArtist: getCatalogByArtistChoice(),
       genreVotes: tally,
       roundCount: this.settings.roundCount,
       difficultyMode: this.settings.difficultyMode,
@@ -377,8 +379,11 @@ export class Room {
       return;
     }
     const song = this.songQueue[index];
-    const genrePool = getRawCatalogByGenre()[song.genre] ?? [];
-    const { options, correctIndex } = buildAlternatives(song, genrePool, this.settings.difficultyMode);
+    const isArtistMode = song.selectionChoice.startsWith("artist-");
+    const alternativePool = isArtistMode
+      ? (getRawCatalogByArtistChoice()[song.selectionChoice as ArtistChoice] ?? [])
+      : (getRawCatalogByGenre()[song.genre] ?? []);
+    const { options, correctIndex } = buildAlternatives(song, alternativePool, this.settings.difficultyMode);
 
     this.currentRoundIndex = index;
     this.currentRound = {

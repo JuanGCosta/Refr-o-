@@ -1,9 +1,10 @@
 import fs from "fs";
 import path from "path";
-import { CatalogSong, Genre, GENRES, ResolvedSong } from "@shared/types";
+import { ARTIST_CHOICES, ARTIST_META, ArtistChoice, CatalogSong, Genre, GENRES, ResolvedSong } from "@shared/types";
 
 import funkRaw from "./genres/funk.json";
 import popRaw from "./genres/pop.json";
+import popInternationalRaw from "./genres/pop_internacional.json";
 import sertanejoRaw from "./genres/sertanejo.json";
 import modaoRaw from "./genres/modao.json";
 import rapRaw from "./genres/rap.json";
@@ -14,6 +15,7 @@ import acusticoRaw from "./genres/acustico.json";
 const BASE_RAW_BY_GENRE: Record<Genre, Omit<CatalogSong, "genre">[]> = {
   funk: funkRaw as Omit<CatalogSong, "genre">[],
   pop: popRaw as Omit<CatalogSong, "genre">[],
+  pop_internacional: popInternationalRaw as Omit<CatalogSong, "genre">[],
   sertanejo: sertanejoRaw as Omit<CatalogSong, "genre">[],
   modao: modaoRaw as Omit<CatalogSong, "genre">[],
   rap: rapRaw as Omit<CatalogSong, "genre">[],
@@ -28,13 +30,15 @@ const DELAY_BETWEEN_BATCHES_MS = 90;
 const PREVIEW_MIN_REMAINING_MS = 90_000;
 const FALLBACK_PREVIEW_TTL_MS = 7 * 60_000;
 const EXPANSION_TRACKS_PER_ARTIST = 14;
-const EXPANSION_FETCH_LIMIT = 35;
+const EXPANSION_FETCH_LIMIT = 50;
+const ARTIST_MODE_TRACK_LIMIT = 30;
 
 /**
- * V7: meta de catálogo. As categorias pedidas recebem prioridade e chegam a
+ * V11: meta de catálogo. As categorias pedidas recebem prioridade e chegam a
  * ~1.050 faixas no total quando a API da Deezer está disponível.
  */
 const EXPANSION_TARGETS: Partial<Record<Genre, number>> = {
+  pop_internacional: 300,
   sertanejo: 190,
   acustico: 150,
   trap: 170,
@@ -47,6 +51,14 @@ const EXPANSION_TARGETS: Partial<Record<Genre, number>> = {
  * catálogo automático jogue, por exemplo, sertanejo dentro de Trap.
  */
 const EXPANSION_ARTISTS: Partial<Record<Genre, string[]>> = {
+  pop_internacional: [
+    "Taylor Swift", "The Weeknd", "Ariana Grande", "Dua Lipa", "Bruno Mars",
+    "Lady Gaga", "Rihanna", "Katy Perry", "Justin Bieber", "Billie Eilish",
+    "Olivia Rodrigo", "Harry Styles", "Ed Sheeran", "Miley Cyrus", "Adele",
+    "Sabrina Carpenter", "Beyoncé", "Britney Spears", "Sia", "Shawn Mendes",
+    "Camila Cabello", "One Direction", "Maroon 5", "Coldplay", "Doja Cat",
+    "Post Malone", "Justin Timberlake", "Christina Aguilera", "Backstreet Boys", "P!nk",
+  ],
   sertanejo: [
     "Jorge & Mateus", "Henrique & Juliano", "Marília Mendonça", "Gusttavo Lima",
     "Luan Santana", "Zé Neto & Cristiano", "Maiara & Maraisa", "Matheus & Kauan",
@@ -263,7 +275,7 @@ async function expandPriorityGenresFromDeezer(): Promise<void> {
   const initialTotal = GENRES.reduce((sum, genre) => sum + rawByGenre[genre].length, 0);
   let addedTotal = 0;
 
-  console.log(`[catalog] expansão V7 iniciada: base local com ${initialTotal} músicas`);
+  console.log(`[catalog] expansão V11 iniciada: base local com ${initialTotal} músicas`);
 
   for (const genre of GENRES) {
     const target = EXPANSION_TARGETS[genre];
@@ -322,7 +334,62 @@ async function expandPriorityGenresFromDeezer(): Promise<void> {
 
   if (addedTotal > 0) saveCache(cacheState);
   rebuildCatalogIndexes();
-  console.log(`[catalog] expansão V7 concluída: ${allSongs.length} músicas cadastradas nesta sessão`);
+  console.log(`[catalog] expansão V11 concluída: ${allSongs.length} músicas cadastradas nesta sessão`);
+}
+
+async function expandArtistModesFromDeezer(): Promise<void> {
+  let addedTotal = 0;
+  console.log(`[catalog] preparando modos de artista (${ARTIST_CHOICES.length} artistas)...`);
+
+  for (const choice of ARTIST_CHOICES) {
+    const meta = ARTIST_META[choice];
+    const artist = await findDeezerArtist(meta.artist);
+    if (!artist) {
+      console.log(`[catalog]   artista ${meta.label}: não encontrado`);
+      continue;
+    }
+
+    const tracks = await fetchArtistTopTracks(artist.id);
+    const existing = new Set(rawByGenre[meta.genre].map((song) => songIdentity(song.title, song.artist)));
+    let availableForArtist = rawByGenre[meta.genre].filter((song) => normalizeText(song.artist) === normalizeText(artist.name)).length;
+    let added = 0;
+
+    for (let index = 0; index < tracks.length && availableForArtist < ARTIST_MODE_TRACK_LIMIT; index++) {
+      const track = tracks[index];
+      if (normalizeText(track.artist.name) !== normalizeText(artist.name)) continue;
+      const identity = songIdentity(track.title, track.artist.name);
+      if (!identity.split("::")[0] || existing.has(identity)) continue;
+
+      const id = `artist-${choice}-${track.id}`;
+      rawByGenre[meta.genre].push({
+        id,
+        title: track.title,
+        artist: track.artist.name,
+        year: 0,
+        difficulty: difficultyForArtistRank(availableForArtist),
+        popularity: popularityForArtistRank(availableForArtist),
+      });
+      existing.add(identity);
+      cacheState[id] = {
+        previewUrl: track.preview,
+        coverUrl: track.album?.cover_big || track.album?.cover_medium || "",
+        resolvedAt: Date.now(),
+        title: track.title,
+        artist: track.artist.name,
+      };
+      availableForArtist += 1;
+      added += 1;
+      addedTotal += 1;
+    }
+    console.log(`[catalog]   artista ${meta.label}: ${availableForArtist} faixas (${added} novas)`);
+  }
+
+  if (addedTotal > 0) saveCache(cacheState);
+  rebuildCatalogIndexes();
+}
+
+function artistMatchesChoice(songArtist: string, choice: ArtistChoice): boolean {
+  return normalizeText(songArtist) === normalizeText(ARTIST_META[choice].artist);
 }
 
 function extractPreviewExpiryMs(previewUrl: string): number | null {
@@ -363,7 +430,7 @@ async function refreshSong(song: CatalogSong): Promise<CacheEntry | null> {
 }
 
 let resolvedByGenre: Record<Genre, ResolvedSong[]> = {
-  funk: [], pop: [], sertanejo: [], modao: [], rap: [], trap: [], mpb: [], acustico: [],
+  funk: [], pop: [], pop_internacional: [], sertanejo: [], modao: [], rap: [], trap: [], mpb: [], acustico: [],
 };
 let resolutionStats = { total: 0, resolved: 0, failed: 0 };
 let readyPromise: Promise<void> | null = null;
@@ -409,6 +476,7 @@ export function initCatalog(): Promise<void> {
 
 async function doInitCatalog(): Promise<void> {
   await expandPriorityGenresFromDeezer();
+  await expandArtistModesFromDeezer();
 
   resolutionStats = { total: allSongs.length, resolved: 0, failed: 0 };
   console.log(`[catalog] preparando ${allSongs.length} músicas...`);
@@ -429,7 +497,7 @@ async function doInitCatalog(): Promise<void> {
   }
 
   const byGenre: Record<Genre, ResolvedSong[]> = {
-    funk: [], pop: [], sertanejo: [], modao: [], rap: [], trap: [], mpb: [], acustico: [],
+    funk: [], pop: [], pop_internacional: [], sertanejo: [], modao: [], rap: [], trap: [], mpb: [], acustico: [],
   };
   results.forEach((song) => byGenre[song.genre].push(song));
   resolvedByGenre = byGenre;
@@ -450,6 +518,26 @@ export function getRawCatalogByGenre(): Record<Genre, CatalogSong[]> {
   return Object.fromEntries(
     GENRES.map((genre) => [genre, rawByGenre[genre].map((song) => ({ ...song, genre }) as CatalogSong)])
   ) as Record<Genre, CatalogSong[]>;
+}
+
+export function getCatalogByArtistChoice(): Record<ArtistChoice, ResolvedSong[]> {
+  return Object.fromEntries(
+    ARTIST_CHOICES.map((choice) => [
+      choice,
+      (resolvedByGenre[ARTIST_META[choice].genre] ?? []).filter((song) => artistMatchesChoice(song.artist, choice)),
+    ])
+  ) as Record<ArtistChoice, ResolvedSong[]>;
+}
+
+export function getRawCatalogByArtistChoice(): Record<ArtistChoice, CatalogSong[]> {
+  return Object.fromEntries(
+    ARTIST_CHOICES.map((choice) => [
+      choice,
+      rawByGenre[ARTIST_META[choice].genre]
+        .map((song) => ({ ...song, genre: ARTIST_META[choice].genre }) as CatalogSong)
+        .filter((song) => artistMatchesChoice(song.artist, choice)),
+    ])
+  ) as Record<ArtistChoice, CatalogSong[]>;
 }
 
 export function getResolutionStats() {

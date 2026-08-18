@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, DoorOpen, Headphones, Users, Timer, Trophy, Shuffle, Code2, ListMusic, Sparkles, Radio } from "lucide-react";
+import { ArrowRight, DoorOpen, Headphones, Users, Timer, Trophy, Shuffle, Code2, ListMusic, Sparkles, Radio, UserRound, Globe2 } from "lucide-react";
 import { Logo, Tagline } from "../components/Logo";
 import { Button } from "../components/Button";
 import { TextField } from "../components/TextField";
@@ -29,7 +29,7 @@ export function HomePage({onCreate,onJoin,initialCode,serverReady=true,serverCon
         </motion.section>
 
         <motion.section initial={{opacity:0,y:14}} animate={{opacity:1,y:0}} transition={{delay:.05,duration:.42}} className="home-brand order-2 lg:order-1">
-          <div className="brand-badge"><Sparkles size={14}/> O duelo musical brasileiro</div>
+          <div className="brand-badge"><Sparkles size={14}/> O duelo musical em tempo real</div>
           <Logo size="lg" className="home-logo"/>
           <h1>Reconheceu a música? <span>Então corre.</span></h1>
           <Tagline className="home-tagline"/>
@@ -38,7 +38,9 @@ export function HomePage({onCreate,onJoin,initialCode,serverReady=true,serverCon
             <span className="home-pill"><Timer size={15}/> Tempo configurável</span>
             <span className="home-pill"><Trophy size={15}/> Pontos por velocidade</span>
             <span className="home-pill"><Shuffle size={15}/> Sorteio aleatório</span>
-            <span className="home-pill"><ListMusic size={15}/> Catálogo 1.000+</span>
+            <span className="home-pill"><ListMusic size={15}/> Catálogo 1.300+</span>
+            <span className="home-pill"><Globe2 size={15}/> Pop internacional</span>
+            <span className="home-pill"><UserRound size={15}/> Modo Artista</span>
           </div>
           <div className="developer-credit" aria-label="Desenvolvido por JG.Dev"><Code2 size={13}/><span>Desenvolvido por</span><strong>JG.Dev</strong></div>
         </motion.section>
