@@ -11,6 +11,8 @@ import rapRaw from "./genres/rap.json";
 import trapRaw from "./genres/trap.json";
 import mpbRaw from "./genres/mpb.json";
 import acusticoRaw from "./genres/acustico.json";
+import sambaRaw from "./genres/samba.json";
+import reggaeRaw from "./genres/reggae.json";
 
 const BASE_RAW_BY_GENRE: Record<Genre, Omit<CatalogSong, "genre">[]> = {
   funk: funkRaw as Omit<CatalogSong, "genre">[],
@@ -22,6 +24,8 @@ const BASE_RAW_BY_GENRE: Record<Genre, Omit<CatalogSong, "genre">[]> = {
   trap: trapRaw as Omit<CatalogSong, "genre">[],
   mpb: mpbRaw as Omit<CatalogSong, "genre">[],
   acustico: acusticoRaw as Omit<CatalogSong, "genre">[],
+  samba: sambaRaw as Omit<CatalogSong, "genre">[],
+  reggae: reggaeRaw as Omit<CatalogSong, "genre">[],
 };
 
 const CACHE_PATH = path.join(__dirname, "..", "..", "data", "previewCache.json");
@@ -44,6 +48,8 @@ const EXPANSION_TARGETS: Partial<Record<Genre, number>> = {
   trap: 170,
   funk: 170,
   modao: 160,
+  samba: 140,
+  reggae: 140,
 };
 
 /**
@@ -81,6 +87,17 @@ const EXPANSION_ARTISTS: Partial<Record<Genre, string[]>> = {
     "MC Kevinho", "MC PH", "MC Paiva ZS", "MC Tuto", "MC GP", "MC Davi", "MC Pedrinho",
     "MC Dricka", "MC Carol", "MC Bin Laden", "MC Lan", "MC GW", "MC Negão Original",
     "MC João", "MC Fioti", "MC WM", "MC Zaac", "Bonde do Tigrão",
+  ],
+  samba: [
+    "Zeca Pagodinho", "Beth Carvalho", "Alcione", "Martinho da Vila", "Fundo de Quintal",
+    "Arlindo Cruz", "Jorge Aragão", "Bezerra da Silva", "Paulinho da Viola", "Cartola",
+    "Clara Nunes", "Dona Ivone Lara", "Exaltasamba", "Grupo Revelação", "Raça Negra",
+    "Pixote", "Só Pra Contrariar", "Sorriso Maroto", "Ferrugem", "Dilsinho",
+  ],
+  reggae: [
+    "Natiruts", "Cidade Negra", "Armandinho", "Chimarruts", "Maneva", "Planta E Raiz",
+    "Ponto de Equilíbrio", "Maskavo", "Onze:20", "Edson Gomes", "Tribo de Jah",
+    "Adão Negro", "Mato Seco", "Filosofia Reggae", "Alma Djem",
   ],
   modao: [
     "Chitãozinho & Xororó", "Zezé Di Camargo & Luciano", "Leandro & Leonardo",
@@ -429,9 +446,9 @@ async function refreshSong(song: CatalogSong): Promise<CacheEntry | null> {
   return entry;
 }
 
-let resolvedByGenre: Record<Genre, ResolvedSong[]> = {
-  funk: [], pop: [], pop_internacional: [], sertanejo: [], modao: [], rap: [], trap: [], mpb: [], acustico: [],
-};
+let resolvedByGenre = Object.fromEntries(
+  GENRES.map((genre) => [genre, [] as ResolvedSong[]])
+) as Record<Genre, ResolvedSong[]>;
 let resolutionStats = { total: 0, resolved: 0, failed: 0 };
 let readyPromise: Promise<void> | null = null;
 
@@ -496,9 +513,9 @@ async function doInitCatalog(): Promise<void> {
     if (i + CONCURRENCY < allSongs.length) await sleep(DELAY_BETWEEN_BATCHES_MS);
   }
 
-  const byGenre: Record<Genre, ResolvedSong[]> = {
-    funk: [], pop: [], pop_internacional: [], sertanejo: [], modao: [], rap: [], trap: [], mpb: [], acustico: [],
-  };
+  const byGenre = Object.fromEntries(
+    GENRES.map((genre) => [genre, [] as ResolvedSong[]])
+  ) as Record<Genre, ResolvedSong[]>;
   results.forEach((song) => byGenre[song.genre].push(song));
   resolvedByGenre = byGenre;
 

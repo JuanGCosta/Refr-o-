@@ -142,3 +142,12 @@ Não incluído automaticamente nesta entrega — abaixo o caminho recomendado:
 - Quando uma rodada vem de um Modo Artista, a música correta e as alternativas pertencem ao mesmo artista.
 - Cada artista recebe um pool dedicado de até 30 faixas quando a fonte de previews disponibiliza esse volume.
 - Misturadão passa a incluir também Pop Internacional, mas não injeta Modos Artista automaticamente.
+
+
+## V12 — Samba, Reggae e votação sem tempo
+
+- A escolha de gênero/artista não tem mais cronômetro.
+- Todos podem alterar o voto até o Host iniciar a partida.
+- O Host inicia somente depois que todos os jogadores conectados escolherem.
+- A aba Artistas agora é organizada por estilo musical.
+- Novas categorias: Samba / Pagode e Reggae Brasileiro, ambas com catálogo local e expansão própria.

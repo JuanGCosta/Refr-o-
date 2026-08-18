@@ -9,7 +9,9 @@ export type Genre =
   | "rap"
   | "trap"
   | "mpb"
-  | "acustico";
+  | "acustico"
+  | "samba"
+  | "reggae";
 
 export type ArtistChoice =
   | "artist-henrique-juliano"
@@ -29,7 +31,7 @@ export type GenreChoice = Genre | "misturadao" | ArtistChoice;
 export type DirectMusicChoice = Genre | ArtistChoice;
 
 export const GENRES: Genre[] = [
-  "funk", "pop", "pop_internacional", "sertanejo", "modao", "rap", "trap", "mpb", "acustico",
+  "funk", "pop", "pop_internacional", "sertanejo", "modao", "rap", "trap", "mpb", "acustico", "samba", "reggae",
 ];
 
 export const GENRE_VOTE_CHOICES: (Genre | "misturadao")[] = [...GENRES, "misturadao"];
@@ -62,6 +64,8 @@ export const GENRE_LABELS: Record<Genre, string> = {
   trap: "Trap Nacional",
   mpb: "MPB",
   acustico: "Acústico / Poesia",
+  samba: "Samba / Pagode",
+  reggae: "Reggae Brasileiro",
 };
 
 export const ARTIST_META: Record<ArtistChoice, { label: string; artist: string; genre: Genre }> = {
@@ -222,6 +226,7 @@ export interface ClientToServerEvents {
   "host:setRoundDuration": (payload: { roundDurationMs: number }) => void;
   "host:setDifficulty": (payload: { difficultyMode: DifficultyMode }) => void;
   "genre:vote": (payload: { genre: GenreChoice }) => void;
+  "host:finishVoting": () => void;
   "host:startGame": () => void;
   "answer:submit": (payload: { optionIndex: number }, ack: (res: { ok: true; correct: boolean } | { ok: false; error: ErrorPayload }) => void) => void;
   "host:playAgain": () => void;

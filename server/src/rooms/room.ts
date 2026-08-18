@@ -71,7 +71,6 @@ interface ActiveRound {
 }
 
 const DISCONNECT_GRACE_LOBBY_MS = 30_000;
-const GENRE_VOTING_WINDOW_MS = 12_000;
 const ROUND_RESULT_DISPLAY_MS = 5_000;
 const SCOREBOARD_DISPLAY_MS = 4_000;
 const COUNTDOWN_STEP_MS = 900;
@@ -308,12 +307,6 @@ export class Room {
     if (!player || this.status !== "GENRE_VOTING" || !GENRE_CHOICES.includes(genre)) return;
     this.genreVotes.set(playerId, genre);
     this.io.to(this.code).emit("genre:votesUpdate", this.votesTally());
-
-    const connectedCount = [...this.players.values()].filter((p) => p.connected).length;
-    if (this.genreVotes.size >= connectedCount) {
-      this.clearTimer(this.votingTimer);
-      this.finishVotingAndStart();
-    }
   }
 
   // ---------- game lifecycle ----------
@@ -332,7 +325,19 @@ export class Room {
     this.recentlyPlayedIds.clear();
     this.setStatus("GENRE_VOTING");
     this.io.to(this.code).emit("genre:votesUpdate", {});
-    this.votingTimer = this.schedule(() => this.finishVotingAndStart(), GENRE_VOTING_WINDOW_MS);
+    return true;
+  }
+
+  finishVoting(playerId: string): boolean {
+    if (this.status !== "GENRE_VOTING") return false;
+    const player = this.players.get(playerId);
+    if (!player?.isHost) return false;
+
+    const connectedIds = [...this.players.values()].filter((p) => p.connected).map((p) => p.id);
+    const allVoted = connectedIds.every((id) => this.genreVotes.has(id));
+    if (!allVoted) return false;
+
+    this.finishVotingAndStart();
     return true;
   }
 

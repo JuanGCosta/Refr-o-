@@ -1,0 +1,338 @@
+[
+  {
+    "id": "samba-001",
+    "title": "Deixa a Vida Me Levar",
+    "artist": "Zeca Pagodinho",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-002",
+    "title": "Verdade",
+    "artist": "Zeca Pagodinho",
+    "year": 1996,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-003",
+    "title": "Caviar",
+    "artist": "Zeca Pagodinho",
+    "year": 2002,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-004",
+    "title": "Faixa Amarela",
+    "artist": "Zeca Pagodinho",
+    "year": 1997,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-005",
+    "title": "Vai Vadiar",
+    "artist": "Zeca Pagodinho",
+    "year": 1998,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-006",
+    "title": "Maneiras",
+    "artist": "Zeca Pagodinho",
+    "year": 1999,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-007",
+    "title": "Vou Festejar",
+    "artist": "Beth Carvalho",
+    "year": 1978,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-008",
+    "title": "Coisinha do Pai",
+    "artist": "Beth Carvalho",
+    "year": 1979,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-009",
+    "title": "Andança",
+    "artist": "Beth Carvalho",
+    "year": 1969,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-010",
+    "title": "Não Deixe o Samba Morrer",
+    "artist": "Alcione",
+    "year": 1975,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-011",
+    "title": "Meu Ébano",
+    "artist": "Alcione",
+    "year": 2005,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-012",
+    "title": "Estranha Loucura",
+    "artist": "Alcione",
+    "year": 1987,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-013",
+    "title": "Você Me Vira a Cabeça",
+    "artist": "Alcione",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-014",
+    "title": "Canta, Canta Minha Gente",
+    "artist": "Martinho da Vila",
+    "year": 1974,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-015",
+    "title": "Mulheres",
+    "artist": "Martinho da Vila",
+    "year": 1995,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-016",
+    "title": "Casa de Bamba",
+    "artist": "Martinho da Vila",
+    "year": 1969,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-017",
+    "title": "Disritmia",
+    "artist": "Martinho da Vila",
+    "year": 1974,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-018",
+    "title": "Ex-Amor",
+    "artist": "Martinho da Vila",
+    "year": 1981,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-019",
+    "title": "O Show Tem Que Continuar",
+    "artist": "Fundo de Quintal",
+    "year": 1988,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-020",
+    "title": "A Amizade",
+    "artist": "Fundo de Quintal",
+    "year": 1991,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-021",
+    "title": "Do Fundo do Nosso Quintal",
+    "artist": "Fundo de Quintal",
+    "year": 1987,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-022",
+    "title": "O Bem",
+    "artist": "Arlindo Cruz",
+    "year": 2011,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-023",
+    "title": "Meu Lugar",
+    "artist": "Arlindo Cruz",
+    "year": 2007,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-024",
+    "title": "Será Que É Amor",
+    "artist": "Arlindo Cruz",
+    "year": 2009,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-025",
+    "title": "Identidade",
+    "artist": "Jorge Aragão",
+    "year": 1992,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-026",
+    "title": "Coisa de Pele",
+    "artist": "Jorge Aragão",
+    "year": 1986,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-027",
+    "title": "Eu e Você Sempre",
+    "artist": "Jorge Aragão",
+    "year": 2000,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-028",
+    "title": "Cheia de Manias",
+    "artist": "Raça Negra",
+    "year": 1992,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-029",
+    "title": "É Tarde Demais",
+    "artist": "Raça Negra",
+    "year": 1995,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-030",
+    "title": "Cigana",
+    "artist": "Raça Negra",
+    "year": 1994,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-031",
+    "title": "Tá Escrito",
+    "artist": "Grupo Revelação",
+    "year": 2009,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-032",
+    "title": "Deixa Acontecer",
+    "artist": "Grupo Revelação",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-033",
+    "title": "Coração Radiante",
+    "artist": "Grupo Revelação",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-034",
+    "title": "Telegrama",
+    "artist": "Exaltasamba",
+    "year": 2003,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-035",
+    "title": "Livre Pra Voar",
+    "artist": "Exaltasamba",
+    "year": 2008,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-036",
+    "title": "Me Apaixonei Pela Pessoa Errada",
+    "artist": "Exaltasamba",
+    "year": 1999,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-037",
+    "title": "Insegurança",
+    "artist": "Pixote",
+    "year": 2008,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-038",
+    "title": "Mande um Sinal",
+    "artist": "Pixote",
+    "year": 2007,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-039",
+    "title": "Brilho de Cristal",
+    "artist": "Pixote",
+    "year": 2005,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "samba-040",
+    "title": "Depois do Prazer",
+    "artist": "Só Pra Contrariar",
+    "year": 1997,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-041",
+    "title": "Essa Tal Liberdade",
+    "artist": "Só Pra Contrariar",
+    "year": 1994,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "samba-042",
+    "title": "Que Se Chama Amor",
+    "artist": "Só Pra Contrariar",
+    "year": 1993,
+    "difficulty": 1,
+    "popularity": 5
+  }
+]

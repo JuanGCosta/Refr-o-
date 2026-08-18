@@ -1,0 +1,338 @@
+[
+  {
+    "id": "reggae-001",
+    "title": "Sorri, Sou Rei",
+    "artist": "Natiruts",
+    "year": 2009,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-002",
+    "title": "Quero Ser Feliz Também",
+    "artist": "Natiruts",
+    "year": 2005,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-003",
+    "title": "Presente de um Beija-Flor",
+    "artist": "Natiruts",
+    "year": 1997,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-004",
+    "title": "Liberdade Pra Dentro da Cabeça",
+    "artist": "Natiruts",
+    "year": 1998,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-005",
+    "title": "Andei Só",
+    "artist": "Natiruts",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-006",
+    "title": "Você Me Encantou Demais",
+    "artist": "Natiruts",
+    "year": 2009,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-007",
+    "title": "Natiruts Reggae Power",
+    "artist": "Natiruts",
+    "year": 2006,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-008",
+    "title": "A Estrada",
+    "artist": "Cidade Negra",
+    "year": 1998,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-009",
+    "title": "Onde Você Mora?",
+    "artist": "Cidade Negra",
+    "year": 1994,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-010",
+    "title": "Firmamento",
+    "artist": "Cidade Negra",
+    "year": 1996,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-011",
+    "title": "Girassol",
+    "artist": "Cidade Negra",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-012",
+    "title": "Pensamento",
+    "artist": "Cidade Negra",
+    "year": 1994,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-013",
+    "title": "O Erê",
+    "artist": "Cidade Negra",
+    "year": 1996,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-014",
+    "title": "Desenho de Deus",
+    "artist": "Armandinho",
+    "year": 2004,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-015",
+    "title": "Semente",
+    "artist": "Armandinho",
+    "year": 2009,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-016",
+    "title": "Outra Vida",
+    "artist": "Armandinho",
+    "year": 2006,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-017",
+    "title": "Ursinho de Dormir",
+    "artist": "Armandinho",
+    "year": 2004,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-018",
+    "title": "Analua",
+    "artist": "Armandinho",
+    "year": 2002,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-019",
+    "title": "Casinha",
+    "artist": "Armandinho",
+    "year": 2004,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-020",
+    "title": "Versos Simples",
+    "artist": "Chimarruts",
+    "year": 2005,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-021",
+    "title": "Do Lado de Cá",
+    "artist": "Chimarruts",
+    "year": 2010,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-022",
+    "title": "Saber Voar",
+    "artist": "Chimarruts",
+    "year": 2007,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-023",
+    "title": "Iemanjá",
+    "artist": "Chimarruts",
+    "year": 2011,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-024",
+    "title": "Seja Para Mim",
+    "artist": "Maneva",
+    "year": 2012,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-025",
+    "title": "Pisando Descalço",
+    "artist": "Maneva",
+    "year": 2015,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-026",
+    "title": "Saudades do Tempo",
+    "artist": "Maneva",
+    "year": 2018,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-027",
+    "title": "Luz Que Me Traz Paz",
+    "artist": "Maneva",
+    "year": 2013,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-028",
+    "title": "O Destino Não Quis",
+    "artist": "Maneva",
+    "year": 2014,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-029",
+    "title": "Com Certeza",
+    "artist": "Planta & Raiz",
+    "year": 2002,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-030",
+    "title": "Filho do Leão",
+    "artist": "Planta & Raiz",
+    "year": 2002,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-031",
+    "title": "Aquele Lugar",
+    "artist": "Planta & Raiz",
+    "year": 2004,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-032",
+    "title": "Aonde Vai Chegar",
+    "artist": "Ponto de Equilíbrio",
+    "year": 2004,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-033",
+    "title": "Santa Kaya",
+    "artist": "Ponto de Equilíbrio",
+    "year": 2007,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-034",
+    "title": "Novo Dia",
+    "artist": "Ponto de Equilíbrio",
+    "year": 2010,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-035",
+    "title": "Um Anjo do Céu",
+    "artist": "Maskavo",
+    "year": 2000,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-036",
+    "title": "Asas",
+    "artist": "Maskavo",
+    "year": 2000,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-037",
+    "title": "Meu Lugar",
+    "artist": "Onze:20",
+    "year": 2012,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-038",
+    "title": "Não Vai Voltar",
+    "artist": "Onze:20",
+    "year": 2014,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-039",
+    "title": "Malandrinha",
+    "artist": "Edson Gomes",
+    "year": 1988,
+    "difficulty": 1,
+    "popularity": 5
+  },
+  {
+    "id": "reggae-040",
+    "title": "Árvore",
+    "artist": "Edson Gomes",
+    "year": 1990,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-041",
+    "title": "Criminalidade",
+    "artist": "Edson Gomes",
+    "year": 1995,
+    "difficulty": 2,
+    "popularity": 4
+  },
+  {
+    "id": "reggae-042",
+    "title": "Camelô",
+    "artist": "Edson Gomes",
+    "year": 1988,
+    "difficulty": 2,
+    "popularity": 4
+  }
+]

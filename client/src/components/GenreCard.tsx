@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   Flame, Sparkles, Guitar, Wheat, Mic2, Zap, Music, Headphones,
-  Shuffle, LucideIcon, Check, Globe2, UserRound,
+  Shuffle, LucideIcon, Check, Globe2, UserRound, Waves,
 } from "lucide-react";
 import {
   ARTIST_CHOICES,
@@ -22,6 +22,8 @@ const GENRE_ICONS: Partial<Record<GenreChoice, LucideIcon>> = {
   trap: Zap,
   mpb: Music,
   acustico: Headphones,
+  samba: Music,
+  reggae: Waves,
   misturadao: Shuffle,
 };
 
@@ -35,6 +37,8 @@ const SUB: Partial<Record<GenreChoice, string>> = {
   trap: "Matuê, Teto, WIU, Veigh e mais",
   mpb: "Clássicos e nova MPB",
   acustico: "Poesia, 1Kilo, Oriente e vibe acústica",
+  samba: "Samba, pagode e clássicos brasileiros",
+  reggae: "Natiruts, Cidade Negra, Armandinho e mais",
   misturadao: "Todas as categorias no mesmo jogo",
 };
 

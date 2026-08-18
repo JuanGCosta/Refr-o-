@@ -155,6 +155,16 @@ export function registerSocketHandlers(io: IO, roomManager: RoomManager, isServe
       room.voteGenre(ctx.playerId, payload.genre);
     });
 
+    socket.on("host:finishVoting", () => {
+      const ctx = getContext();
+      if (!ctx) return;
+      const room = roomManager.get(ctx.roomCode);
+      if (!room) return;
+      if (!room.finishVoting(ctx.playerId)) {
+        socket.emit("error", err("INVALID_PAYLOAD", "Todos os jogadores precisam escolher antes de começar."));
+      }
+    });
+
     socket.on("host:startGame", () => {
       if (!isServerReady()) {
         socket.emit("error", err("SERVER_WARMING_UP", "O servidor ainda está preparando o catálogo. Aguarde alguns segundos e tente novamente."));

@@ -35,7 +35,6 @@ interface GameRoomState {
   scoreboard: { ranking: ScoreboardEntry[]; nextRoundIn: number } | null;
   finished: FinishedPayload | null;
   lastError: ErrorPayload | null;
-  votingDeadline: number | null;
 }
 
 const initialState: GameRoomState = {
@@ -57,7 +56,6 @@ const initialState: GameRoomState = {
   scoreboard: null,
   finished: null,
   lastError: null,
-  votingDeadline: null,
 };
 
 type Action =
@@ -106,7 +104,6 @@ function reducer(state: GameRoomState, action: Action): GameRoomState {
       if (action.status === "GENRE_VOTING") {
         next.genreVotes = {};
         next.myVote = null;
-        next.votingDeadline = Date.now() + 12000;
       }
       if (action.status === "LOBBY") {
         next.roundData = null;
@@ -300,6 +297,7 @@ export function useGameRoom() {
     },
     [socket]
   );
+  const finishVoting = useCallback(() => socket.emit("host:finishVoting"), [socket]);
   const startGame = useCallback(() => socket.emit("host:startGame"), [socket]);
   const playAgain = useCallback(() => socket.emit("host:playAgain"), [socket]);
 
@@ -335,6 +333,7 @@ export function useGameRoom() {
     setRoundDuration,
     setDifficulty,
     voteGenre,
+    finishVoting,
     startGame,
     submitAnswer,
     playAgain,
