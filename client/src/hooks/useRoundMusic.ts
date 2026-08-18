@@ -4,9 +4,14 @@ import { resolveServerAssetUrl } from "../services/serverUrl";
 
 export type RoundMusicState = "idle" | "loading" | "playing" | "blocked" | "error";
 
-function waitForReady(audio: HTMLAudioElement): Promise<void> {
-  if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) return Promise.resolve();
+function waitForReady(audio: HTMLAudioElement, timeoutMs = 8_000): Promise<void> {
+  if (audio.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) return Promise.resolve();
   return new Promise((resolve, reject) => {
+    const timer = window.setTimeout(() => {
+      cleanup();
+      reject(new Error("Tempo excedido ao carregar o áudio."));
+    }, timeoutMs);
+
     const onReady = () => {
       cleanup();
       resolve();
@@ -16,10 +21,13 @@ function waitForReady(audio: HTMLAudioElement): Promise<void> {
       reject(new Error("Falha ao carregar o áudio."));
     };
     const cleanup = () => {
-      audio.removeEventListener("loadedmetadata", onReady);
+      window.clearTimeout(timer);
+      audio.removeEventListener("loadeddata", onReady);
+      audio.removeEventListener("canplay", onReady);
       audio.removeEventListener("error", onError);
     };
-    audio.addEventListener("loadedmetadata", onReady, { once: true });
+    audio.addEventListener("loadeddata", onReady, { once: true });
+    audio.addEventListener("canplay", onReady, { once: true });
     audio.addEventListener("error", onError, { once: true });
   });
 }
@@ -61,38 +69,54 @@ export function useRoundMusic(
     async (forceRefresh = false) => {
       if (!round?.previewUrl) return;
       const audio = getAudio();
-      setMusicState("loading");
+      const baseUrl = resolveServerAssetUrl(round.previewUrl);
+      const separator = baseUrl.includes("?") ? "&" : "?";
+      const roundUrl = `${baseUrl}${separator}round=${round.roundNumber}&started=${round.serverStartTime}`;
+      const maxAttempts = 2;
 
-      try {
-        const baseUrl = resolveServerAssetUrl(round.previewUrl);
-        const separator = baseUrl.includes("?") ? "&" : "?";
-        const roundUrl = `${baseUrl}${separator}round=${round.roundNumber}&started=${round.serverStartTime}`;
-        const source = forceRefresh ? `${roundUrl}&retry=${Date.now()}` : roundUrl;
+      for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        setMusicState("loading");
+        const mustRefresh = forceRefresh || attempt > 0;
+        const source = mustRefresh ? `${roundUrl}&retry=${Date.now()}-${attempt}` : roundUrl;
 
-        if (audio.src !== new URL(source, window.location.href).href || forceRefresh) {
-          audio.src = source;
-          audio.load();
-          await waitForReady(audio);
-        }
-
-        // Aproxima o ponto de reprodução do relógio oficial do servidor.
-        // Isso também ajuda quem reconecta no meio da rodada.
-        const elapsedSeconds = Math.max(0, (Date.now() - round.serverStartTime) / 1000);
-        if (Number.isFinite(audio.duration) && audio.duration > 0) {
-          audio.currentTime = Math.min(elapsedSeconds, Math.max(0, audio.duration - 0.25));
-        } else if (elapsedSeconds > 0) {
-          try {
-            audio.currentTime = elapsedSeconds;
-          } catch {
-            // Alguns navegadores só permitem seek depois de mais dados carregados.
+        try {
+          const absoluteSource = new URL(source, window.location.href).href;
+          if (audio.src !== absoluteSource || mustRefresh) {
+            audio.src = source;
+            audio.load();
           }
-        }
 
-        await audio.play();
-        setMusicState("playing");
-      } catch (error) {
-        const name = error instanceof DOMException ? error.name : "";
-        setMusicState(name === "NotAllowedError" ? "blocked" : "error");
+          await waitForReady(audio);
+
+          // Align playback with the official server clock. Reconnecting players
+          // join roughly at the same point instead of hearing the preview from 0s.
+          const elapsedSeconds = Math.max(0, (Date.now() - round.serverStartTime) / 1000);
+          if (Number.isFinite(audio.duration) && audio.duration > 0) {
+            audio.currentTime = Math.min(elapsedSeconds, Math.max(0, audio.duration - 0.25));
+          } else if (elapsedSeconds > 0) {
+            try {
+              audio.currentTime = elapsedSeconds;
+            } catch {
+              // Some browsers only allow seeking after more audio data arrives.
+            }
+          }
+
+          await audio.play();
+          setMusicState("playing");
+          return;
+        } catch (error) {
+          const name = error instanceof DOMException ? error.name : "";
+          if (name === "NotAllowedError") {
+            setMusicState("blocked");
+            return;
+          }
+
+          if (attempt + 1 < maxAttempts) {
+            await new Promise((resolve) => window.setTimeout(resolve, 450));
+            continue;
+          }
+          setMusicState("error");
+        }
       }
     },
     [getAudio, round]

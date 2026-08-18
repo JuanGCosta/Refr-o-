@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import confetti from "canvas-confetti";
 import { motion } from "framer-motion";
 import { RefreshCw, Home, Award as AwardIcon, Sparkles } from "lucide-react";
@@ -7,6 +7,7 @@ import { Podium } from "../components/Podium";
 import { Button } from "../components/Button";
 import { AvatarGraphic } from "../game/avatars";
 import { GameRoomApi } from "../hooks/useGameRoom";
+import { formatMs } from "../utils/format";
 import { useSound } from "../hooks/useSound";
 
 export function FinalResultsPage({ game, sound, onExit }: { game: GameRoomApi; sound: ReturnType<typeof useSound>; onExit: () => void; }) {
@@ -58,7 +59,9 @@ export function FinalResultsPage({ game, sound, onExit }: { game: GameRoomApi; s
             <div className="stats-grid">
               <div><strong>{myStats.totalScore}</strong><span>Pontos</span></div>
               <div><strong>{myStats.correctAnswers}/{myStats.totalRounds}</strong><span>Acertos</span></div>
-              <div><strong>{myStats.bestStreak}</strong><span>Sequência</span></div>
+              <div><strong>{Math.round(myStats.accuracy * 100)}%</strong><span>Precisão</span></div>
+              <div><strong>{myStats.fastestAnswerMs === null ? "—" : formatMs(myStats.fastestAnswerMs)}</strong><span>Mais rápida</span></div>
+              <div><strong>{myStats.bestStreak}</strong><span>Melhor sequência</span></div>
             </div>
           </section>
         )}

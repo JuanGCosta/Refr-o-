@@ -4,3 +4,7 @@ server/data/previewCache.json
 .env
 .env.local
 *.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

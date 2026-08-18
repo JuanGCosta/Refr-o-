@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { LogOut, Play, UserRound, Users, Radio, Settings2, Crown } from "lucide-react";
 import { Logo } from "../components/Logo";
@@ -14,8 +13,10 @@ export function LobbyPage({ game, onLeave }: { game: GameRoomApi; onLeave: () =>
   const me = state.players.find((p) => p.id === state.youId);
   const isHost = !!me?.isHost;
   const connectedCount = state.players.filter((p) => p.connected).length;
-  const canStart = isHost && connectedCount >= 1;
-  const isSoloTest = isHost && connectedCount === 1;
+  const connectedPlayers = state.players.filter((p) => p.connected);
+  const everyoneReady = connectedPlayers.every((p) => p.isReady);
+  const canStart = isHost && connectedCount >= 1 && everyoneReady;
+  const isSolo = isHost && connectedCount === 1;
 
   return (
     <div className="lobby-screen screen-pad min-h-screen">
@@ -34,7 +35,7 @@ export function LobbyPage({ game, onLeave }: { game: GameRoomApi; onLeave: () =>
             </div>
             <RoomCodeBadge code={state.roomCode ?? ""}/>
             <div className="lobby-status-line"><Users size={16}/><span>{connectedCount === 1 ? "Você está sozinho por enquanto" : `${connectedCount} jogadores conectados`}</span></div>
-            {isSoloTest && <div className="solo-badge"><UserRound size={15}/> Modo solo liberado para testes</div>}
+            {isSolo && <div className="solo-badge"><UserRound size={15}/> Modo Solo</div>}
             {isHost && <div className="host-note"><Crown size={14}/> Você é o host e controla as configurações.</div>}
           </section>
 
@@ -47,8 +48,8 @@ export function LobbyPage({ game, onLeave }: { game: GameRoomApi; onLeave: () =>
 
             {isHost && <div className="settings-title-inline"><Settings2 size={16}/><span>Configurações da partida</span></div>}
             {isHost && <GameSettingsPanel rounds={state.settings.roundCount} durationMs={state.settings.roundDurationMs} difficulty={state.settings.difficultyMode} onRounds={game.setRounds} onDuration={game.setRoundDuration} onDifficulty={game.setDifficulty}/>} 
-            {!isHost && <Button size="lg" variant={me?.isReady ? "secondary" : "primary"} onClick={()=>game.setReady(!me?.isReady)} className="w-full">{me?.isReady ? "Pronto para jogar" : "Estou pronto"}</Button>}
-            {isHost && <div className="lobby-start-wrap"><Button size="lg" onClick={game.startGame} disabled={!canStart} className="w-full"><Play size={20}/>{isSoloTest ? "Começar teste solo" : "Iniciar partida"}</Button><p>{isSoloTest ? "Você pode testar todo o fluxo sozinho." : "Quando estiver todo mundo pronto, começa o duelo."}</p></div>}
+            {!isHost && <Button size="lg" variant={me?.isReady ? "secondary" : "primary"} onClick={()=>game.setReady(!me?.isReady)} className="w-full">{me?.isReady ? "Cancelar pronto" : "Estou pronto"}</Button>}
+            {isHost && <div className="lobby-start-wrap"><Button size="lg" onClick={game.startGame} disabled={!canStart} className="w-full"><Play size={20}/>{isSolo ? "Jogar sozinho" : "Iniciar partida"}</Button><p>{isSolo ? "Partida individual com as mesmas regras do multiplayer." : everyoneReady ? "Todo mundo pronto. É só começar." : "Aguardando todos os jogadores ficarem prontos."}</p></div>}
           </section>
         </div>
       </div>

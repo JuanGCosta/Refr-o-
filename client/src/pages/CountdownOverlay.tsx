@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Headphones, Zap } from "lucide-react";
+import { Headphones, Loader2, Zap } from "lucide-react";
 import { useSound } from "../hooks/useSound";
 
 export function CountdownOverlay({
@@ -32,7 +32,9 @@ export function CountdownOverlay({
         <div className="countdown-kicker"><Headphones size={15}/> Próxima música</div>
         <p className="eyebrow mt-4">Rodada {roundNumber} de {totalRounds}</p>
         <h1 className="hero-title text-2xl sm:text-3xl mt-2">Prepara o ouvido</h1>
-        <p className="text-sm text-mist-400 mt-2">Reconheceu? Responde sem pensar duas vezes.</p>
+        <p className="text-sm text-mist-400 mt-2">
+          {value === null ? "Confirmando a próxima faixa antes de liberar a rodada." : "Reconheceu? Responde sem pensar duas vezes."}
+        </p>
       </div>
 
       <div className="countdown-core">
@@ -49,7 +51,11 @@ export function CountdownOverlay({
               transition={{ duration: .26, ease: "easeOut" }}
               className="countdown-number"
             >
-              {value === 0 ? <span className="inline-flex items-center gap-2"><Zap size={38} fill="currentColor"/>JÁ</span> : value}
+              {value === null
+                ? <span className="inline-flex items-center gap-2 text-base sm:text-lg"><Loader2 size={30} className="animate-spin"/> Preparando áudio</span>
+                : value === 0
+                  ? <span className="inline-flex items-center gap-2"><Zap size={38} fill="currentColor"/>JÁ</span>
+                  : value}
             </motion.span>
           </AnimatePresence>
         </div>

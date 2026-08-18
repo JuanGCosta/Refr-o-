@@ -292,6 +292,7 @@ export interface RoomStateSnapshot {
   settings: RoomSettings;
   selectedGenre: GenreChoice | null;
   genreVotes: Partial<Record<GenreChoice, number>>;
+  myVote: GenreChoice | null;
   currentRound: number;
   totalRounds: number;
   you: { playerId: string; sessionToken: string };

@@ -1,4 +1,3 @@
-import React from "react";
 
 export function ProgressRing({ ratio, seconds, size = 64 }: { ratio: number; seconds: number; size?: number; }) {
   const stroke = size * 0.09;

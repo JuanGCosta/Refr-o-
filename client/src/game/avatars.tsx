@@ -1,4 +1,3 @@
-import React from "react";
 
 export const AVATAR_IDS = Array.from({ length: 17 }, (_, i) => `avatar-${String(i + 1).padStart(2, "0")}`);
 

@@ -13,3 +13,5 @@ services:
         value: production
       - key: REFRAO_ALLOWED_ORIGINS
         value: "*"
+      - key: REFRAO_BACKGROUND_CATALOG_EXPANSION
+        value: "true"

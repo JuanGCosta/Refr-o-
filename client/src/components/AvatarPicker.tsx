@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Shuffle, Check } from "lucide-react";
 import { AVATAR_IDS, AvatarGraphic, avatarLabel, randomAvatarId } from "../game/avatars";

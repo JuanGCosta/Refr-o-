@@ -1,4 +1,3 @@
-import React from "react";
 
 const widths = {
   sm: "w-[118px] sm:w-[130px]",

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Zap, X, Music2, Trophy } from "lucide-react";
 import { AudioVisualizer } from "../components/AudioVisualizer";
@@ -11,7 +11,9 @@ import { useSound } from "../hooks/useSound";
 export function RoundResultPage({ game, sound }: { game: GameRoomApi; sound: ReturnType<typeof useSound> }) {
   const { state } = game;
   const result = state.roundResult;
-  useEffect(() => { if (result) sound.play("fastest"); }, [result?.roundNumber]);
+  useEffect(() => {
+    if (result?.results.some((entry) => entry.wasFastest)) sound.play("fastest");
+  }, [result?.roundNumber]);
   if (!result) return null;
 
   const sortedResults = [...result.results].sort((a, b) => b.pointsEarned - a.pointsEarned);

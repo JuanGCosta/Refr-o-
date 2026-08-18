@@ -101,8 +101,16 @@ export function registerSocketHandlers(io: IO, roomManager: RoomManager, isServe
       if (!snapshot) return ack({ ok: false, error: err("ROOM_NOT_FOUND", "Falha ao reconectar.") });
       ack({ ok: true, snapshot });
 
-      const resume = room.getResumeRoundPayload();
-      if (resume) socket.emit("round:start", resume);
+      const resumeCountdown = room.getResumeCountdownPayload();
+      if (resumeCountdown) socket.emit("game:countdown", resumeCountdown);
+      const resumeRound = room.getResumeRoundPayload();
+      if (resumeRound) socket.emit("round:start", resumeRound);
+      const resumeResult = room.getResumeRoundResultPayload();
+      if (resumeResult) socket.emit("round:end", resumeResult);
+      const resumeScoreboard = room.getResumeScoreboardPayload();
+      if (resumeScoreboard) socket.emit("scoreboard:update", resumeScoreboard);
+      const resumeFinished = room.getResumeFinishedPayload();
+      if (resumeFinished) socket.emit("game:finished", resumeFinished);
     });
 
     socket.on("player:ready", (payload) => {
@@ -177,7 +185,7 @@ export function registerSocketHandlers(io: IO, roomManager: RoomManager, isServe
       if (!room.startGame(ctx.playerId)) {
         socket.emit(
           "error",
-          err("NOT_HOST", "Não foi possível iniciar. Confirme que você é o host e está no lobby.")
+          err("NOT_HOST", "Não foi possível iniciar. Confira se você é o host e se todos os jogadores estão prontos.")
         );
       }
     });
@@ -215,6 +223,7 @@ export function registerSocketHandlers(io: IO, roomManager: RoomManager, isServe
     });
 
     socket.on("disconnect", () => {
+      eventLimiter.clear(socket.id);
       const ctx = getContext();
       if (!ctx) return;
       const room = roomManager.get(ctx.roomCode);

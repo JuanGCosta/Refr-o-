@@ -27,7 +27,13 @@ export function useBackendHealth() {
         window.clearTimeout(timeout);
         if (!response.ok) throw new Error("health unavailable");
         const data = (await response.json()) as HealthPayload;
-        if (!cancelled) setState(data.ready ? "ready" : (data as HealthPayload & { error?: string | null }).error ? "offline" : "warming");
+        if (!cancelled) {
+          if (data.ready) {
+            setState("ready");
+            return;
+          }
+          setState((data as HealthPayload & { error?: string | null }).error ? "offline" : "warming");
+        }
       } catch {
         if (!cancelled) setState("offline");
       }

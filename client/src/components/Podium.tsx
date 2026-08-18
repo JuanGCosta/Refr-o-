@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Crown } from "lucide-react";
 import { ScoreboardEntry } from "@shared/types";

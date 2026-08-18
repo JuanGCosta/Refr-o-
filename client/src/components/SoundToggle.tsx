@@ -1,4 +1,3 @@
-import React from "react";
 import { Volume2, VolumeX } from "lucide-react";
 
 export function SoundToggle({ enabled, onToggle }: { enabled: boolean; onToggle: () => void }) {

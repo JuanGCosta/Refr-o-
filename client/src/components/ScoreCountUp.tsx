@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function ScoreCountUp({ value, className = "" }: { value: number; className?: string }) {
   const [display, setDisplay] = useState(value);

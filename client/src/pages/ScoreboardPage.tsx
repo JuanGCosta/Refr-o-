@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { ArrowUp, ArrowDown, Minus, Radio, Trophy } from "lucide-react";
 import { AvatarGraphic } from "../game/avatars";

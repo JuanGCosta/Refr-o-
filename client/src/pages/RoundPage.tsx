@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Loader2, RefreshCw, Volume2, Headphones, Radio, Trophy } from "lucide-react";
 import { ROUND_DURATION_MS } from "@shared/types";
@@ -30,14 +30,16 @@ export function RoundPage({ game, sound, music }: { game: GameRoomApi; sound: Re
   const visualizerSize = useMemo(() => (typeof window !== "undefined" && window.innerWidth < 640 ? 142 : 190), []);
   if (!round) return null;
 
-  const locked = state.myAnswer !== null || remainingSeconds <= 0;
+  const me = state.players.find((p) => p.id === state.youId);
+  const alreadyAnswered = !!me?.hasAnsweredCurrentRound;
+  const locked = state.myAnswer !== null || alreadyAnswered || remainingSeconds <= 0;
   const handleAnswer = async (index: number) => {
-    if (locked) return;
+    if (locked || selected !== null) return;
     setSelected(index);
-    await game.submitAnswer(index);
+    const result = await game.submitAnswer(index);
+    if (!result.ok) setSelected(null);
   };
 
-  const me = state.players.find((p) => p.id === state.youId);
   const ranked = [...state.players].sort((a, b) => b.score - a.score);
   const myRank = ranked.findIndex((p) => p.id === state.youId) + 1;
 
@@ -57,14 +59,18 @@ export function RoundPage({ game, sound, music }: { game: GameRoomApi; sound: Re
             {music.state === "loading" && <span><Loader2 size={14} className="animate-spin"/> Carregando trecho...</span>}
             {music.state === "blocked" && <button type="button" onClick={music.activate}><Volume2 size={17}/> Ativar música</button>}
             {music.state === "error" && <button type="button" onClick={music.retry}><RefreshCw size={16}/> Tentar carregar novamente</button>}
-            {music.state === "playing" && <span><Headphones size={14}/> Escuta bem e escolhe rápido.</span>}
+            {music.state === "playing" && alreadyAnswered && !state.myAnswer && <span><Headphones size={14}/> Sua resposta já foi registrada.</span>}
+            {music.state === "playing" && (!alreadyAnswered || !!state.myAnswer) && <span><Headphones size={14}/> Escuta bem e escolhe rápido.</span>}
           </div>
           <div className="answered-row" aria-label="Jogadores que já responderam">
-            {state.players.map((p) => (
-              <div key={p.id} className={`answered-avatar ${state.answeredPlayerIds.includes(p.id) ? "has-answered" : ""}`} title={`${p.name}${state.answeredPlayerIds.includes(p.id) ? " respondeu" : ""}`}>
+            {state.players.map((p) => {
+              const answered = state.answeredPlayerIds.includes(p.id) || p.hasAnsweredCurrentRound;
+              return (
+              <div key={p.id} className={`answered-avatar ${answered ? "has-answered" : ""}`} title={`${p.name}${answered ? " respondeu" : ""}`}>
                 <AvatarGraphic id={p.avatarId} className="w-full h-full" />
               </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 

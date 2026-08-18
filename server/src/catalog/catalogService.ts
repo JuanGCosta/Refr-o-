@@ -29,27 +29,29 @@ const BASE_RAW_BY_GENRE: Record<Genre, Omit<CatalogSong, "genre">[]> = {
 };
 
 const CACHE_PATH = path.join(__dirname, "..", "..", "data", "previewCache.json");
-const CONCURRENCY = 10;
-const DELAY_BETWEEN_BATCHES_MS = 90;
 const PREVIEW_MIN_REMAINING_MS = 90_000;
 const FALLBACK_PREVIEW_TTL_MS = 7 * 60_000;
-const EXPANSION_TRACKS_PER_ARTIST = 14;
+const EXPANSION_TRACKS_PER_ARTIST = 24;
 const EXPANSION_FETCH_LIMIT = 50;
-const ARTIST_MODE_TRACK_LIMIT = 30;
+const ARTIST_MODE_TRACK_LIMIT = 40;
+const EXPANSION_CONCURRENCY = 4;
 
 /**
- * V11: meta de catálogo. As categorias pedidas recebem prioridade e chegam a
- * ~1.050 faixas no total quando a API da Deezer está disponível.
+ * Metas de expansão do catálogo. A base local abre instantaneamente e a
+ * sessão pode crescer para alguns milhares de faixas quando a Deezer responde.
  */
 const EXPANSION_TARGETS: Partial<Record<Genre, number>> = {
-  pop_internacional: 300,
-  sertanejo: 190,
-  acustico: 150,
-  trap: 170,
-  funk: 170,
-  modao: 160,
-  samba: 140,
-  reggae: 140,
+  funk: 280,
+  pop: 280,
+  pop_internacional: 340,
+  sertanejo: 300,
+  modao: 260,
+  rap: 280,
+  trap: 300,
+  mpb: 300,
+  acustico: 230,
+  samba: 240,
+  reggae: 200,
 };
 
 /**
@@ -57,6 +59,25 @@ const EXPANSION_TARGETS: Partial<Record<Genre, number>> = {
  * catálogo automático jogue, por exemplo, sertanejo dentro de Trap.
  */
 const EXPANSION_ARTISTS: Partial<Record<Genre, string[]>> = {
+  pop: [
+    "Anitta", "Luísa Sonza", "Jão", "Gloria Groove", "IZA", "Pabllo Vittar",
+    "Ludmilla", "Marina Sena", "Duda Beat", "Carol Biazin", "Giulia Be",
+    "Melim", "Vitor Kley", "Tiago Iorc", "Manu Gavassi", "Lexa",
+    "Pitty", "Skank", "Jota Quest", "Capital Inicial", "NX Zero", "Fresno",
+  ],
+  rap: [
+    "Racionais MC's", "Emicida", "Criolo", "BK", "Djonga", "Filipe Ret",
+    "Hungria Hip Hop", "Rincon Sapiência", "Gabriel o Pensador", "MV Bill",
+    "Facção Central", "509-E", "Sabotage", "SNJ", "Detentos do Rap",
+    "ConeCrewDiretoria", "Costa Gold", "Haikaiss", "Sant", "Froid", "Black Alien",
+  ],
+  mpb: [
+    "Caetano Veloso", "Gilberto Gil", "Gal Costa", "Maria Bethânia", "Djavan",
+    "Milton Nascimento", "Elis Regina", "Chico Buarque", "Marisa Monte",
+    "Nando Reis", "Cássia Eller", "Vanessa da Mata", "Ana Carolina", "Seu Jorge",
+    "Tim Maia", "Jorge Ben Jor", "Alceu Valença", "Zé Ramalho", "Lenine",
+    "Adriana Calcanhotto", "Tribalistas", "Maria Gadú", "Liniker", "Rubel",
+  ],
   pop_internacional: [
     "Taylor Swift", "The Weeknd", "Ariana Grande", "Dua Lipa", "Bruno Mars",
     "Lady Gaga", "Rihanna", "Katy Perry", "Justin Bieber", "Billie Eilish",
@@ -217,6 +238,7 @@ async function searchDeezer(title: string, artist: string): Promise<DeezerTrack 
     if (!res.ok) return null;
     const json = (await res.json()) as { data: DeezerTrack[] };
     const ranked = (json.data ?? [])
+      .filter((track) => Boolean(track.preview))
       .map((track) => ({
         track,
         score: titleMatchScore(title, track.title) + artistMatchScore(artist, track.artist?.name ?? ""),
@@ -304,50 +326,94 @@ async function fetchArtistTopTracks(artistId: number): Promise<DeezerTrack[]> {
   }
 }
 
+type ArtistTrackBundle = { artist: DeezerArtist; tracks: DeezerTrack[] };
+
+const artistTrackBundleInFlight = new Map<string, Promise<ArtistTrackBundle | null>>();
+
+async function getArtistTrackBundle(name: string): Promise<ArtistTrackBundle | null> {
+  const key = normalizeText(name);
+  const existing = artistTrackBundleInFlight.get(key);
+  if (existing) return existing;
+
+  const task = (async () => {
+    const artist = await findDeezerArtist(name);
+    if (!artist) return null;
+    const tracks = await fetchArtistTopTracks(artist.id);
+    return tracks.length ? { artist, tracks } : null;
+  })();
+
+  artistTrackBundleInFlight.set(key, task);
+  const result = await task.catch(() => null);
+  // Keep the result cached for the rest of this process, so genre expansion
+  // and artist mode do not hit Deezer twice for the same artist.
+  artistTrackBundleInFlight.set(key, Promise.resolve(result));
+  return result;
+}
+
+async function mapWithConcurrency<T, R>(
+  items: readonly T[],
+  limit: number,
+  worker: (item: T) => Promise<R>
+): Promise<R[]> {
+  const results = new Array<R>(items.length);
+  let cursor = 0;
+
+  const runners = Array.from({ length: Math.min(Math.max(1, limit), items.length) }, async () => {
+    while (true) {
+      const index = cursor++;
+      if (index >= items.length) break;
+      results[index] = await worker(items[index]);
+    }
+  });
+
+  await Promise.all(runners);
+  return results;
+}
+
 async function expandPriorityGenresFromDeezer(): Promise<void> {
   const initialTotal = GENRES.reduce((sum, genre) => sum + rawByGenre[genre].length, 0);
   let addedTotal = 0;
 
-  console.log(`[catalog] expansão V11 iniciada: base local com ${initialTotal} músicas`);
+  console.log(`[catalog] expansão em segundo plano: base local com ${initialTotal} músicas`);
 
   for (const genre of GENRES) {
     const target = EXPANSION_TARGETS[genre];
     const artists = EXPANSION_ARTISTS[genre] ?? [];
     if (!target || rawByGenre[genre].length >= target || artists.length === 0) continue;
 
+    const bundles = await mapWithConcurrency(
+      artists,
+      EXPANSION_CONCURRENCY,
+      (artistName) => getArtistTrackBundle(artistName)
+    );
+
     const existing = new Set(rawByGenre[genre].map((song) => songIdentity(song.title, song.artist)));
     let addedGenre = 0;
 
-    for (const artistName of artists) {
-      if (rawByGenre[genre].length >= target) break;
-      const artist = await findDeezerArtist(artistName);
-      if (!artist) continue;
-
-      const tracks = await fetchArtistTopTracks(artist.id);
+    for (const bundle of bundles) {
+      if (!bundle || rawByGenre[genre].length >= target) continue;
       let addedFromArtist = 0;
 
-      for (let index = 0; index < tracks.length; index++) {
+      for (let index = 0; index < bundle.tracks.length; index++) {
         if (rawByGenre[genre].length >= target || addedFromArtist >= EXPANSION_TRACKS_PER_ARTIST) break;
-        const track = tracks[index];
+        const track = bundle.tracks[index];
 
-        // Exige que a faixa seja creditada ao artista do pool escolhido. Isso reduz
-        // resultados de busca de outros gêneros com nomes semelhantes.
-        if (normalizeText(track.artist.name) !== normalizeText(artist.name)) continue;
+        // The artist list defines the category. Requiring an exact primary
+        // artist match prevents a top-track result from leaking into another genre.
+        if (normalizeText(track.artist.name) !== normalizeText(bundle.artist.name)) continue;
 
         const identity = songIdentity(track.title, track.artist.name);
         if (!identity.split("::")[0] || existing.has(identity)) continue;
 
         const id = `dz-${genre}-${track.id}`;
-        const song: Omit<CatalogSong, "genre"> = {
+        rawByGenre[genre].push({
           id,
           title: track.title,
           artist: track.artist.name,
           year: 0,
-          difficulty: difficultyForArtistRank(addedFromArtist),
-          popularity: popularityForArtistRank(addedFromArtist),
-        };
-
-        rawByGenre[genre].push(song);
+          difficulty: difficultyForArtistRank(index),
+          popularity: popularityForArtistRank(index),
+        });
         existing.add(identity);
         cacheState[id] = {
           previewUrl: track.preview,
@@ -362,34 +428,39 @@ async function expandPriorityGenresFromDeezer(): Promise<void> {
       }
     }
 
+    // Make new tracks available immediately, without waiting for every genre.
+    rebuildCatalogIndexes();
+    rebuildPlayableCatalog();
     console.log(`[catalog]   ${genre}: +${addedGenre} -> ${rawByGenre[genre].length}/${target}`);
   }
 
   if (addedTotal > 0) queueCacheSave();
-  rebuildCatalogIndexes();
-  console.log(`[catalog] expansão V11 concluída: ${allSongs.length} músicas cadastradas nesta sessão`);
+  console.log(`[catalog] expansão de gêneros concluída: ${allSongs.length} músicas nesta sessão`);
 }
 
 async function expandArtistModesFromDeezer(): Promise<void> {
   let addedTotal = 0;
-  console.log(`[catalog] preparando modos de artista (${ARTIST_CHOICES.length} artistas)...`);
+  console.log(`[catalog] ampliando modos de artista (${ARTIST_CHOICES.length} artistas)...`);
 
-  for (const choice of ARTIST_CHOICES) {
+  const bundles = await mapWithConcurrency(
+    ARTIST_CHOICES,
+    EXPANSION_CONCURRENCY,
+    async (choice) => ({ choice, bundle: await getArtistTrackBundle(ARTIST_META[choice].artist) })
+  );
+
+  for (const item of bundles) {
+    if (!item.bundle) continue;
+    const { choice, bundle } = item;
     const meta = ARTIST_META[choice];
-    const artist = await findDeezerArtist(meta.artist);
-    if (!artist) {
-      console.log(`[catalog]   artista ${meta.label}: não encontrado`);
-      continue;
-    }
-
-    const tracks = await fetchArtistTopTracks(artist.id);
     const existing = new Set(rawByGenre[meta.genre].map((song) => songIdentity(song.title, song.artist)));
-    let availableForArtist = rawByGenre[meta.genre].filter((song) => normalizeText(song.artist) === normalizeText(artist.name)).length;
+    let availableForArtist = rawByGenre[meta.genre].filter(
+      (song) => normalizeText(song.artist) === normalizeText(bundle.artist.name)
+    ).length;
     let added = 0;
 
-    for (let index = 0; index < tracks.length && availableForArtist < ARTIST_MODE_TRACK_LIMIT; index++) {
-      const track = tracks[index];
-      if (normalizeText(track.artist.name) !== normalizeText(artist.name)) continue;
+    for (let index = 0; index < bundle.tracks.length && availableForArtist < ARTIST_MODE_TRACK_LIMIT; index++) {
+      const track = bundle.tracks[index];
+      if (normalizeText(track.artist.name) !== normalizeText(bundle.artist.name)) continue;
       const identity = songIdentity(track.title, track.artist.name);
       if (!identity.split("::")[0] || existing.has(identity)) continue;
 
@@ -399,8 +470,8 @@ async function expandArtistModesFromDeezer(): Promise<void> {
         title: track.title,
         artist: track.artist.name,
         year: 0,
-        difficulty: difficultyForArtistRank(availableForArtist),
-        popularity: popularityForArtistRank(availableForArtist),
+        difficulty: difficultyForArtistRank(index),
+        popularity: popularityForArtistRank(index),
       });
       existing.add(identity);
       cacheState[id] = {
@@ -414,11 +485,14 @@ async function expandArtistModesFromDeezer(): Promise<void> {
       added += 1;
       addedTotal += 1;
     }
-    console.log(`[catalog]   artista ${meta.label}: ${availableForArtist} faixas (${added} novas)`);
+    if (added > 0) {
+      rebuildCatalogIndexes();
+      rebuildPlayableCatalog();
+    }
   }
 
   if (addedTotal > 0) queueCacheSave();
-  rebuildCatalogIndexes();
+  console.log(`[catalog] modos de artista ampliados: +${addedTotal} faixas`);
 }
 
 function artistMatchesChoice(songArtist: string, choice: ArtistChoice): boolean {
@@ -426,6 +500,41 @@ function artistMatchesChoice(songArtist: string, choice: ArtistChoice): boolean 
   const actual = normalizeText(songArtist);
   if (!expected || !actual) return false;
   return actual === expected || actual.includes(expected) || expected.includes(actual);
+}
+
+function validateCatalogIntegrity(): void {
+  const ids = new Set<string>();
+
+  for (const genre of GENRES) {
+    const songs = rawByGenre[genre] ?? [];
+    if (songs.length < 4) {
+      throw new Error(`Catálogo insuficiente em ${genre}: mínimo de 4 músicas.`);
+    }
+
+    for (const song of songs) {
+      if (!song.id || !song.title?.trim() || !song.artist?.trim()) {
+        throw new Error(`Entrada inválida no catálogo ${genre}.`);
+      }
+      if (ids.has(song.id)) {
+        throw new Error(`ID de música duplicado: ${song.id}.`);
+      }
+      ids.add(song.id);
+      if (![1, 2, 3, 4].includes(song.difficulty)) {
+        throw new Error(`Dificuldade inválida em ${song.id}.`);
+      }
+      if (![1, 2, 3, 4, 5].includes(song.popularity)) {
+        throw new Error(`Popularidade inválida em ${song.id}.`);
+      }
+    }
+  }
+
+  for (const choice of ARTIST_CHOICES) {
+    const meta = ARTIST_META[choice];
+    const count = rawByGenre[meta.genre].filter((song) => artistMatchesChoice(song.artist, choice)).length;
+    if (count < 4) {
+      throw new Error(`Modo Artista precisa de pelo menos 4 músicas: ${meta.label}.`);
+    }
+  }
 }
 
 function extractPreviewExpiryMs(previewUrl: string): number | null {
@@ -511,22 +620,6 @@ export function getCachedCoverUrl(songId: string): string {
   return isTrackMatch(song, { title: cached.title, artist: cached.artist }) ? cached.coverUrl : "";
 }
 
-async function resolveOne(song: CatalogSong): Promise<ResolvedSong | null> {
-  const cached = cacheState[song.id];
-
-  if (cached?.previewUrl && isTrackMatch(song, { title: cached.title, artist: cached.artist })) {
-    return { ...song, previewUrl: cached.previewUrl, coverUrl: cached.coverUrl };
-  }
-
-  const fresh = await refreshSong(song);
-  if (!fresh) return null;
-  return { ...song, previewUrl: fresh.previewUrl, coverUrl: fresh.coverUrl };
-}
-
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 export function initCatalog(): Promise<void> {
   if (!readyPromise) readyPromise = doInitCatalog();
   return readyPromise;
@@ -557,26 +650,28 @@ async function doInitCatalog(): Promise<void> {
   // Fast boot: all genre JSON files are already loaded by Node. Do not perform
   // hundreds of Deezer calls before allowing users into a room.
   rebuildCatalogIndexes();
+  validateCatalogIntegrity();
   rebuildPlayableCatalog();
 
   console.log(`[catalog] pronto instantaneamente: ${allSongs.length} músicas locais; previews sob demanda`);
   GENRES.forEach((genre) => console.log(`[catalog]   ${genre}: ${resolvedByGenre[genre].length} músicas`));
 
-  // Dynamic expansion is intentionally opt-in. It can still be enabled on a
-  // larger server, but Render's cold start should stay fast by default.
-  if (process.env.REFRAO_BACKGROUND_CATALOG_EXPANSION === "true") {
+  // Keep startup instant, then grow the catalog in the background. This is
+  // enabled by default and can be disabled explicitly with "false".
+  if (process.env.REFRAO_BACKGROUND_CATALOG_EXPANSION !== "false") {
     setTimeout(() => {
       void (async () => {
         try {
           await expandPriorityGenresFromDeezer();
           await expandArtistModesFromDeezer();
+          rebuildCatalogIndexes();
           rebuildPlayableCatalog();
           console.log(`[catalog] expansão em segundo plano concluída: ${allSongs.length} músicas`);
         } catch (error) {
           console.warn("[catalog] expansão em segundo plano ignorada:", error);
         }
       })();
-    }, 1_500).unref?.();
+    }, 1_200).unref?.();
   }
 }
 

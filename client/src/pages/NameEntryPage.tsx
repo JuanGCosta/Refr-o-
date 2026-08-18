@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import {useState} from "react";
 import {motion} from "framer-motion";
 import {ArrowRight,ArrowLeft,UserRound,ShieldCheck} from"lucide-react";
 import {Button} from"../components/Button";

@@ -15,9 +15,9 @@ import {
   ScoreboardEntry,
   RoundEndPayload,
   RoundPlayerResult,
-  ResolvedSong,
   Award,
   PlayerStats,
+  FinishedPayload,
   RoomStateSnapshot,
   MAX_PLAYERS,
   MIN_ROUNDS,
@@ -37,7 +37,7 @@ import {
   getFreshPreviewUrl,
   getCachedCoverUrl,
 } from "../catalog/catalogService";
-import { secureRandomIndex } from "../utils/random";
+import { secureRandomIndex, secureShuffle } from "../utils/random";
 
 interface InternalPlayer {
   id: string;
@@ -96,12 +96,18 @@ export class Room {
   currentRoundIndex = -1;
   currentRound: ActiveRound | null = null;
   recentlyPlayedIds = new Set<string>();
+  private unplayableSongIds = new Set<string>();
   createdAt = Date.now();
   lastActivityAt = Date.now();
 
   private scoreboardOrder: string[] = [];
   private timers = new Set<NodeJS.Timeout>();
-  private votingTimer: NodeJS.Timeout | null = null;
+  private countdownValue: number | null = null;
+  private lastRoundResult: RoundEndPayload | null = null;
+  private lastScoreboard: { ranking: ScoreboardEntry[]; nextRoundIn: number } | null = null;
+  private scoreboardShownAt = 0;
+  private finishedPayload: FinishedPayload | null = null;
+  private roundPreparationInFlight = new Map<number, Promise<boolean>>();
 
   constructor(code: string, private io: IO) {
     this.code = code;
@@ -118,13 +124,6 @@ export class Room {
     }, ms);
     this.timers.add(timer);
     return timer;
-  }
-
-  private clearTimer(timer: NodeJS.Timeout | null): void {
-    if (timer) {
-      clearTimeout(timer);
-      this.timers.delete(timer);
-    }
   }
 
   destroy(): void {
@@ -180,6 +179,7 @@ export class Room {
       settings: this.settings,
       selectedGenre: this.selectedGenre,
       genreVotes: this.votesTally(),
+      myVote: this.genreVotes.get(player.id) ?? null,
       currentRound: Math.max(this.currentRoundIndex + 1, 0),
       totalRounds: this.settings.roundCount,
       you: { playerId: player.id, sessionToken: player.sessionToken },
@@ -259,7 +259,10 @@ export class Room {
     const next = [...this.players.values()]
       .filter((p) => p.connected)
       .sort((a, b) => a.joinedAt - b.joinedAt)[0];
-    if (next) next.isHost = true;
+    if (next) {
+      next.isHost = true;
+      next.isReady = true;
+    }
   }
 
   setReady(playerId: string, ready: boolean): void {
@@ -322,14 +325,19 @@ export class Room {
     const player = this.players.get(playerId);
     if (!player?.isHost || this.status !== "LOBBY") return false;
     const connected = [...this.players.values()].filter((p) => p.connected);
-    // Solo test mode is intentionally supported: one connected host may start.
-    return connected.length >= 1;
+    // Single-player is supported; in multiplayer every connected player must be ready.
+    return connected.length >= 1 && connected.every((p) => p.isReady);
   }
 
   startGame(playerId: string): boolean {
     if (!this.canStart(playerId)) return false;
     this.genreVotes.clear();
     this.recentlyPlayedIds.clear();
+    this.unplayableSongIds.clear();
+    this.countdownValue = null;
+    this.lastRoundResult = null;
+    this.lastScoreboard = null;
+    this.finishedPayload = null;
     this.setStatus("GENRE_VOTING");
     this.io.to(this.code).emit("genre:votesUpdate", {});
     return true;
@@ -370,17 +378,96 @@ export class Room {
     this.runCountdownThenStart(0);
   }
 
-  private runCountdownThenStart(nextIndex: number): void {
-    // Resolve the signed preview in parallel with the countdown. It never blocks
-    // the room state, but usually means the audio is already cached when PLAYING starts.
-    const upcomingSong = this.songQueue[nextIndex];
-    if (upcomingSong) void getFreshPreviewUrl(upcomingSong.id);
+  private prepareRoundSong(index: number): Promise<boolean> {
+    const existing = this.roundPreparationInFlight.get(index);
+    if (existing) return existing;
 
+    const task = this.resolvePlayableSongForRound(index).finally(() => {
+      this.roundPreparationInFlight.delete(index);
+    });
+    this.roundPreparationInFlight.set(index, task);
+    return task;
+  }
+
+  private async resolvePlayableSongForRound(index: number): Promise<boolean> {
+    if (index >= this.songQueue.length) return true;
+
+    const queued = this.songQueue[index];
+    const isArtistMode = queued.selectionChoice.startsWith("artist-");
+    const sourcePool = isArtistMode
+      ? (getCatalogByArtistChoice()[queued.selectionChoice as ArtistChoice] ?? [])
+      : (getCatalogByGenre()[queued.genre] ?? []);
+
+    const candidates: QueuedSong[] = [];
+    const seen = new Set<string>();
+    const pushCandidate = (song: QueuedSong) => {
+      if (seen.has(song.id) || this.unplayableSongIds.has(song.id)) return;
+      if (song.id !== queued.id && this.recentlyPlayedIds.has(song.id)) return;
+      seen.add(song.id);
+      candidates.push(song);
+    };
+
+    // Try the song already chosen first. If its preview expired or disappeared,
+    // replacements stay inside the same genre/artist pool.
+    pushCandidate(queued);
+    for (const song of secureShuffle(sourcePool)) {
+      pushCandidate({ ...song, selectionChoice: queued.selectionChoice });
+      if (candidates.length >= 17) break;
+    }
+
+    const BATCH_SIZE = 4;
+    for (let offset = 0; offset < candidates.length; offset += BATCH_SIZE) {
+      const batch = candidates.slice(offset, offset + BATCH_SIZE);
+      const checks = await Promise.all(
+        batch.map(async (candidate) => ({
+          candidate,
+          preview: await getFreshPreviewUrl(candidate.id),
+        }))
+      );
+
+      const playable = checks.find((result) => Boolean(result.preview));
+      checks.forEach((result) => {
+        if (!result.preview) this.unplayableSongIds.add(result.candidate.id);
+      });
+
+      if (playable) {
+        this.songQueue[index] = playable.candidate;
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  private runCountdownThenStart(nextIndex: number): void {
+    void this.prepareCountdownAndStart(nextIndex);
+  }
+
+  private async prepareCountdownAndStart(nextIndex: number): Promise<void> {
+    this.lastRoundResult = null;
+    this.lastScoreboard = null;
+    this.countdownValue = null;
     this.setStatus("COUNTDOWN");
+
+    // Never open a scored round until the server has confirmed a valid preview.
+    // If one track fails, resolvePlayableSongForRound swaps it for another track
+    // from exactly the same category.
+    const ready = await this.prepareRoundSong(nextIndex);
+    if (this.status !== "COUNTDOWN") return;
+
+    if (!ready) {
+      console.warn(`[room ${this.code}] nenhum preview disponível para a rodada ${nextIndex + 1}; tentando novamente.`);
+      this.schedule(() => this.runCountdownThenStart(nextIndex), 2_000);
+      return;
+    }
+
     let value = 3;
     const tick = () => {
+      if (this.status !== "COUNTDOWN") return;
+      this.countdownValue = value;
       this.io.to(this.code).emit("game:countdown", { value });
       if (value === 0) {
+        this.countdownValue = null;
         this.startRound(nextIndex);
         return;
       }
@@ -424,6 +511,12 @@ export class Room {
       serverStartTime: this.currentRound.serverStartTime,
       durationMs: this.currentRound.durationMs,
     });
+
+    // Resolve the next track while players are answering and while the result
+    // screens are visible. In most rounds the next audio is ready long before 3-2-1.
+    if (index + 1 < this.songQueue.length) {
+      void this.prepareRoundSong(index + 1);
+    }
 
     this.schedule(() => this.endRound(), this.currentRound.durationMs);
   }
@@ -469,12 +562,15 @@ export class Room {
 
     let fastestCorrectPlayerId: string | null = null;
     let fastestTime = Infinity;
-    round.answers.forEach((answer, playerId) => {
-      if (answer.correct && answer.timeMs < fastestTime) {
-        fastestTime = answer.timeMs;
-        fastestCorrectPlayerId = playerId;
-      }
-    });
+    const hasCompetition = [...this.players.values()].filter((p) => p.connected).length > 1;
+    if (hasCompetition) {
+      round.answers.forEach((answer, playerId) => {
+        if (answer.correct && answer.timeMs < fastestTime) {
+          fastestTime = answer.timeMs;
+          fastestCorrectPlayerId = playerId;
+        }
+      });
+    }
 
     const results: RoundPlayerResult[] = [];
     this.players.forEach((player) => {
@@ -535,6 +631,7 @@ export class Room {
       },
       results,
     };
+    this.lastRoundResult = payload;
     this.setStatus("ROUND_RESULT");
     this.io.to(this.code).emit("round:end", payload);
     this.broadcastPlayers();
@@ -554,11 +651,14 @@ export class Room {
     }));
     this.scoreboardOrder = ranked.map((p) => p.id);
 
-    this.setStatus("SCOREBOARD");
-    this.io.to(this.code).emit("scoreboard:update", {
+    const scoreboardPayload = {
       ranking,
       nextRoundIn: Math.round(SCOREBOARD_DISPLAY_MS / 1000),
-    });
+    };
+    this.lastScoreboard = scoreboardPayload;
+    this.scoreboardShownAt = Date.now();
+    this.setStatus("SCOREBOARD");
+    this.io.to(this.code).emit("scoreboard:update", scoreboardPayload);
 
     this.schedule(() => this.advanceRound(), SCOREBOARD_DISPLAY_MS);
   }
@@ -573,7 +673,6 @@ export class Room {
   }
 
   private finishGame(): void {
-    this.setStatus("FINISHED");
     const ranked = [...this.players.values()].sort((a, b) => b.score - a.score);
     const ranking: ScoreboardEntry[] = ranked.map((p, i) => ({
       playerId: p.id,
@@ -608,8 +707,10 @@ export class Room {
     });
 
     const awards: Award[] = this.buildAwards(ranked);
-
-    this.io.to(this.code).emit("game:finished", { ranking, stats, awards });
+    const payload: FinishedPayload = { ranking, stats, awards };
+    this.finishedPayload = payload;
+    this.setStatus("FINISHED");
+    this.io.to(this.code).emit("game:finished", payload);
   }
 
   private buildAwards(ranked: InternalPlayer[]): Award[] {
@@ -665,20 +766,31 @@ export class Room {
       });
     }
 
+    const specialistAwards: { genre: Genre; player: InternalPlayer; count: number }[] = [];
     GENRES.forEach((genre) => {
       const specialist = byMost((p) => p.genreCorrect[genre] ?? 0);
-      if (specialist) {
+      if (!specialist) return;
+      specialistAwards.push({
+        genre,
+        player: specialist,
+        count: specialist.genreCorrect[genre] ?? 0,
+      });
+    });
+
+    specialistAwards
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 3)
+      .forEach(({ genre, player, count }) => {
         awards.push({
           key: `especialista-${genre}`,
           title: `Especialista em ${GENRE_LABELS[genre]}`,
           description: `Mais acertos em ${GENRE_LABELS[genre]}`,
-          playerId: specialist.id,
-          playerName: specialist.name,
-          avatarId: specialist.avatarId,
-          value: `${specialist.genreCorrect[genre]} acertos`,
+          playerId: player.id,
+          playerName: player.name,
+          avatarId: player.avatarId,
+          value: `${count} acertos`,
         });
-      }
-    });
+      });
 
     return awards;
   }
@@ -697,6 +809,7 @@ export class Room {
       p.totalCorrectTimeMs = 0;
       p.genreCorrect = {};
       p.hasAnsweredCurrentRound = false;
+      p.isReady = p.isHost;
     });
     this.genreVotes.clear();
     this.selectedGenre = null;
@@ -704,9 +817,33 @@ export class Room {
     this.currentRoundIndex = -1;
     this.currentRound = null;
     this.scoreboardOrder = [];
+    this.countdownValue = null;
+    this.lastRoundResult = null;
+    this.lastScoreboard = null;
+    this.finishedPayload = null;
     this.setStatus("LOBBY");
     this.broadcastPlayers();
     return true;
+  }
+
+  getResumeCountdownPayload(): { value: number } | null {
+    if (this.status !== "COUNTDOWN" || this.countdownValue === null) return null;
+    return { value: this.countdownValue };
+  }
+
+  getResumeRoundResultPayload(): RoundEndPayload | null {
+    return this.status === "ROUND_RESULT" ? this.lastRoundResult : null;
+  }
+
+  getResumeScoreboardPayload(): { ranking: ScoreboardEntry[]; nextRoundIn: number } | null {
+    if (this.status !== "SCOREBOARD" || !this.lastScoreboard) return null;
+    const elapsed = Date.now() - this.scoreboardShownAt;
+    const nextRoundIn = Math.max(0, Math.ceil((SCOREBOARD_DISPLAY_MS - elapsed) / 1000));
+    return { ...this.lastScoreboard, nextRoundIn };
+  }
+
+  getResumeFinishedPayload(): FinishedPayload | null {
+    return this.status === "FINISHED" ? this.finishedPayload : null;
   }
 
   getResumeRoundPayload(): {

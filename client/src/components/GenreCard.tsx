@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import {
   Flame, Sparkles, Guitar, Wheat, Mic2, Zap, Music, Headphones,
   Shuffle, LucideIcon, Check, Globe2, UserRound, Waves,
